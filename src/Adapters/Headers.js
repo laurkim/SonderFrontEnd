@@ -1,7 +1,7 @@
-export function headers() {
+export function Headers() {
   return {
-    'Content-type': 'application/json',
+    'Content-Type': 'application/json',
     'Accept': 'application/json',
     'Authorization': localStorage.getItem('token')
   }
-}
+};

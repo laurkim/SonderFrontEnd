@@ -1,37 +1,27 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Headers } from '../../Adapters/Headers';
 
-import { headers } from '../../authorization/headers';
-import Login from './Login';
-import Main from '../Main/Main';
+class UserAuthorization extends Component{
 
-
-class UserAuthorization extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    }
+  componentDidMount() {
+    debugger
+    this.fetchSpotifyCode();
   }
 
-  handleCode = router => {
-    debugger
+  fetchSpotifyCode = () => {
     if (localStorage.getItem("token")) {
-      this.props.history.push("/main")
+      this.props.history.push("/base")
     } else {
-      fetch('https://localhost:3000/api/v1/home', {
+      fetch('http://localhost:3000/api/v1/home', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
+        headers: Headers(),
         body: JSON.stringify({ code: this.props.location.search.split("?code=")[1] })
       })
         .then(res => res.json())
         .then(data => {
           const {currentUser, code} = data
           localStorage.setItem("token", code);
-          this.setState({ currentUser: currentUser["display_name"] }, () => this.props.history.push("/main"))
+          this.setState({ currentUser: currentUser["display_name"] }, () => this.props.history.push("/base"))
         }
       )
       return null;
@@ -39,13 +29,48 @@ class UserAuthorization extends Component {
     return null;
   }
 
-  render() {
+  render(){
     return (
       <div>
-        {this.handleCode()}
       </div>
     )
   }
+
 }
+
+// const UserAuthorization = props => {
+//   const componentDidMount = () => {
+//     this.fetchSpotifyCode();
+//   }
+//
+//   const fetchSpotifyCode = () => {
+//     if (localStorage.getItem("token")) {
+//       this.props.history.push("/base")
+//     } else {
+//       fetch('http://localhost:3000/api/v1/home', {
+//         method: 'POST',
+//         headers: Headers(),
+//         body: JSON.stringify({ code: this.props.location.search.split("?code=")[1] })
+//       })
+//         .then(res => res.json())
+//         .then(data => {
+//           const {currentUser, code} = data
+//           localStorage.setItem("token", code);
+//           this.setState({ currentUser: currentUser["display_name"] }, () => this.props.history.push("/base"))
+//         }
+//       )
+//       return null;
+//     }
+//     return null;
+//   }
+//
+//   componentDidMount()
+//
+//   return (
+//     <div>
+//     </div>
+//   )
+//
+// }
 
 export default UserAuthorization;

@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import './app.css';
 import Login from './components/User/Login';
 import UserAuthorization from './components/User/UserAuth';
-import Main from './components/Main/Main';
+import Base from './components/Base/Base';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         <Route exact path="/" component={Login} />
         <Route path="/home" component={UserAuthorization} />
-        <Route path="/main" component={Main} />
+        <Route path="/base" component={Base} />
       </div>
     );
   }

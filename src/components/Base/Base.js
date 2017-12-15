@@ -1,7 +1,6 @@
 import React from 'react';
-import { headers } from '../../authorization/headers';
 
-class Main extends React.Component {
+class Base extends React.Component {
   render() {
     return (
       <div>
@@ -11,4 +10,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+export default Base;

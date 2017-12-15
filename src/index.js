@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, withRouter } from 'react-router-dom';
 import App from './App';
 
-const MyApp = () =>(
+const TheApp = withRouter(App);
+
+const MyApp = () => (
   <Router>
-    <App />
+    <TheApp />
   </Router>
-)
+);
 
 ReactDOM.render(
   <MyApp />,
