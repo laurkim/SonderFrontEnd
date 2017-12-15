@@ -12,7 +12,6 @@ export function fetchUser(code,history) {
       localStorage.setItem("jwt",user.code)
        dispatch({ type: 'FETCH_USER', payload: user.currentUser })
        history.push("/base")
-    })
-
+    });
   };
 }
