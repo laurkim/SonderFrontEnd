@@ -13,7 +13,6 @@ class Base extends Component {
 }
 
 function mapStateToProps(state) {
-  debugger
   return {};
 }
 
