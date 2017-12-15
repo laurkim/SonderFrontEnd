@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect }  from 'react-redux';
+import * as actions from "../../actions/fetchUser";
 
-class Base extends React.Component {
+class Base extends Component {
   render() {
     return (
       <div>
-        <p>inside main page</p>
+        <p>inside base component</p>
       </div>
     )
   }
 }
 
-export default Base;
+function mapStateToProps(state) {
+  debugger
+  return {};
+}
+
+export default connect(mapStateToProps)(Base);
