@@ -1,6 +1,6 @@
 import { Headers } from '../Adapters/Headers';
 
-export function fetchUser(code,history) {
+export function fetchUser(code, history) {
   return (dispatch) => {
     return fetch('http://localhost:3000/api/v1/home', {
       method: 'POST',
@@ -9,7 +9,7 @@ export function fetchUser(code,history) {
     })
     .then(res => res.json())
     .then(user =>{
-      localStorage.setItem("jwt",user.code)
+      localStorage.setItem("jwt", user.code)
        dispatch({ type: 'FETCH_USER', payload: user.currentUser })
        history.push("/base")
     });

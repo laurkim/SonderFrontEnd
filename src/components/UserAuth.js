@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Headers } from '../../Adapters/Headers';
-import * as actions from '../../actions/fetchUser';
+import * as actions from '../actions/fetchUser';
 import { connect }  from 'react-redux';
 
 class UserAuthorization extends Component {
