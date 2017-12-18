@@ -9,24 +9,24 @@ const URL = "http://localhost:3000/api/v1";
 
 
 class SpotifyContainer extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      topTracks: [],
-    }
-  }
+  // constructor() {
+  //   super();
+  //
+  //   this.state = {
+  //     topTracks: [],
+  //   }
+  // }
 
   componentDidMount() {
     console.log("spotify container mounts")
-    fetch(`${URL}/top_tracks`, { headers: Headers() })
-        .then(resp => resp.json())
-        .then(data => {debugger} )
+    // fetch(`${URL}/top_tracks`, { headers: Headers() })
+    //     .then(resp => resp.json())
+    //     .then(data => data )
           // this.setState({ topTracks: data.top_tracks.tracks }));
   }
 
   render() {
-    debugger
+    // debugger
     return (
       <div>
         {/* nav bar at top of page */}
@@ -46,7 +46,6 @@ class SpotifyContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  // console.log("the current state is", state);
   return { currentUser: state.currentUser };
 }
 
