@@ -32,6 +32,7 @@ class SpotifyContainer extends Component {
         {/* nav bar at top of page */}
         <NavigationBar currentUser={this.props.currentUser.display_name} />
 
+
         {/* body */}
         <Container text style={{ marginTop: '7em' }}>
           <Header as='h1'>Main body</Header>
