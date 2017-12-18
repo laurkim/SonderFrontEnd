@@ -1,8 +1,9 @@
 import { Headers } from '../Adapters/Headers';
+const URL = 'http://localhost:3000/api/v1'
 
 export function loginUser(code, history) {
   return (dispatch) => {
-    return fetch('http://localhost:3000/api/v1/home', {
+    return fetch(`${URL}/home`, {
       method: 'POST',
       headers: Headers(),
       body: JSON.stringify({ code })

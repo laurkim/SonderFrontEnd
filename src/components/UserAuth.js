@@ -6,7 +6,6 @@ import SpotifyContainer from './SpotifyContainer';
 
 class UserAuthorization extends Component {
   componentDidMount() {
-    console.log(this.props.location.search);
     if (this.props.location.search.length !== 0) {
       const code = this.props.location.search.split("?code=")[1]
       this.props.loginUser(code, this.props.history)
