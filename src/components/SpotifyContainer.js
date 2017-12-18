@@ -22,7 +22,7 @@ class SpotifyContainer extends Component {
     console.log("spotify container has mounted");
     console.log("props are", this.props);
     console.log("-------------------------");
-
+    //
     // fetch(`${URL}/top_tracks`, { headers: Headers() })
     // .then(resp => resp.json())
     // .then(data => {debugger})
@@ -36,7 +36,7 @@ class SpotifyContainer extends Component {
     nextProps.currentUser ?
       fetch(`${URL}/top_tracks`, { headers: Headers() })
       .then(resp => resp.json())
-      // .then(data => {debugger})
+      .then(data => {debugger})
         // this.setState({ topTracks: data.top_tracks.items }));
       // this.props.fetchTracks()
     : null
