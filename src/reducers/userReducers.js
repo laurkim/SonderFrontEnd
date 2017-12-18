@@ -12,8 +12,18 @@ function userReducer(state = {}, action) {
   }
 };
 
-const mainReducer = combineReducers({
+// function trackReducer(state = [], action) {
+//   switch (action.type) {
+//     case 'FETCH_TRACKS':
+//       return [...action.payload];
+//     default:
+//       return state;
+//   };
+// };
+
+const rootReducer = combineReducers({
   currentUser: userReducer,
+  // topTracks: trackReducer,
 })
 
-export default mainReducer;
+export default rootReducer;

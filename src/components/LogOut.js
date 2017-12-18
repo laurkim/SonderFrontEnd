@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router'
 import { Button } from 'semantic-ui-react'
+import * as actions from '../actions/fetchUser';
+import { connect }  from 'react-redux';
 
 const User = (props) => {
   const logOut = () => {
@@ -19,4 +21,4 @@ const User = (props) => {
   )
 }
 
-export default withRouter(User);
+export default connect(() => ({}), actions)(withRouter(User));

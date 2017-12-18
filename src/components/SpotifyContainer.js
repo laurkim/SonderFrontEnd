@@ -1,42 +1,36 @@
 import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import * as actions from "../actions/fetchUser";
-import LogOut from './LogOut';
-import { Container, Divider, Dropdown, Grid, Header, Image, List, Menu, Segment, Button } from 'semantic-ui-react'
+import { Headers } from '../Adapters/Headers';
+import { Container, Header } from 'semantic-ui-react'
+import NavigationBar from './NavigationBar';
+import Footer from './Footer';
+const URL = "http://localhost:3000/api/v1";
+
 
 class SpotifyContainer extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      topTracks: [],
+    }
+  }
+
   componentDidMount() {
-    // console.log("inside base component");
+    console.log("spotify container mounts")
+    fetch(`${URL}/top_tracks`, { headers: Headers() })
+        .then(resp => resp.json())
+        .then(data => {debugger} )
+          // this.setState({ topTracks: data.top_tracks.tracks }));
   }
 
   render() {
+    debugger
     return (
       <div>
-        {/* left side of fixed nav bar */}
-        <Menu fixed='top' inverted>
-          <Container>
-            <Menu.Item as='a' header>
-              <Image
-                size='mini'
-                src='/invertedLogo.png'
-                style={{ marginRight: '1.5em' }}
-              />
-              Differentia
-            </Menu.Item>
-            <Menu.Item as='a'>Home</Menu.Item>
-            <Menu.Item href='//google.com' target='_blank'>About</Menu.Item>
-
-            {/* right side of fixed nav bar */}
-            <Menu.Menu position='right'>
-              <Menu.Item>
-                <Button color='blue' as='a'>{this.props.currentUser.display_name}</Button>
-              </Menu.Item>
-              <Menu.Item>
-                <LogOut />
-              </Menu.Item>
-            </Menu.Menu>
-          </Container>
-        </Menu>
+        {/* nav bar at top of page */}
+        <NavigationBar currentUser={this.props.currentUser.display_name} />
 
         {/* body */}
         <Container text style={{ marginTop: '7em' }}>
@@ -45,63 +39,7 @@ class SpotifyContainer extends Component {
         </Container>
 
         {/* footer */}
-        <Segment
-          inverted
-          vertical
-          style={{ margin: '5em 0em 0em', padding: '5em 0em' }}
-          >
-            <Container textAlign='center'>
-              <Grid divided inverted stackable>
-                <Grid.Row>
-                  <Grid.Column width={3}>
-                    <Header inverted as='h4' content='Group 1' />
-                    <List link inverted>
-                      <List.Item as='a'>Link One</List.Item>
-                      <List.Item as='a'>Link Two</List.Item>
-                      <List.Item as='a'>Link Three</List.Item>
-                      <List.Item as='a'>Link Four</List.Item>
-                    </List>
-                  </Grid.Column>
-                  <Grid.Column width={3}>
-                    <Header inverted as='h4' content='Group 2' />
-                    <List link inverted>
-                      <List.Item as='a'>Link One</List.Item>
-                      <List.Item as='a'>Link Two</List.Item>
-                      <List.Item as='a'>Link Three</List.Item>
-                      <List.Item as='a'>Link Four</List.Item>
-                    </List>
-                  </Grid.Column>
-                  <Grid.Column width={3}>
-                    <Header inverted as='h4' content='Group 3' />
-                    <List link inverted>
-                      <List.Item as='a'>Link One</List.Item>
-                      <List.Item as='a'>Link Two</List.Item>
-                      <List.Item as='a'>Link Three</List.Item>
-                      <List.Item as='a'>Link Four</List.Item>
-                    </List>
-                  </Grid.Column>
-                  <Grid.Column width={3}>
-                    <Header inverted as='h4' content='Footer Header' />
-                    <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-
-              <Divider inverted section />
-              <Image
-                centered
-                size='mini'
-                src='/invertedLogo.png'
-              />
-              <br/>
-              <List horizontal inverted divided link>
-                <List.Item as='a' href='#'>Site Map</List.Item>
-                <List.Item as='a' href='#'>Contact Us</List.Item>
-                <List.Item as='a' href='#'>Terms and Conditions</List.Item>
-                <List.Item as='a' href='#'>Privacy Policy</List.Item>
-              </List>
-            </Container>
-          </Segment>
+        <Footer />
         </div>
     )
   }
