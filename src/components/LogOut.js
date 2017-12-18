@@ -12,11 +12,7 @@ const User = (props) => {
 
   return (
     <div>
-      {localStorage.length !== 0 ?
-        <div>
-          <Button basic color='blue' onClick={logOut}>Log Out</Button>
-        </div>
-        : null}
+      <Button basic color='blue' onClick={logOut}>Log Out</Button>
     </div>
   )
 }
