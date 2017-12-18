@@ -12,11 +12,7 @@ const User = (props) => {
     <div>
       {localStorage.length !== 0 ?
         <div>
-          <Button.Group>
-            <Button>{props.currentUser}</Button>
-            <Button.Or />
-            <Button negative onClick={logOut}>Log Out</Button>
-          </Button.Group>
+          <Button basic color='blue' onClick={logOut}>Log Out</Button>
         </div>
         : null}
     </div>

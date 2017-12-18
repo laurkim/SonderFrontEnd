@@ -4,15 +4,15 @@ import * as actions from "../actions/fetchUser";
 import LogOut from './LogOut';
 import { Container, Divider, Dropdown, Grid, Header, Image, List, Menu, Segment, Button } from 'semantic-ui-react'
 
-class Base extends Component {
+class SpotifyContainer extends Component {
   componentDidMount() {
-    console.log("inside base component");
+    // console.log("inside base component");
   }
 
   render() {
     return (
       <div>
-        {/* fixed navigation bar at top of page */}
+        {/* left side of fixed nav bar */}
         <Menu fixed='top' inverted>
           <Container>
             <Menu.Item as='a' header>
@@ -24,38 +24,27 @@ class Base extends Component {
               Differentia
             </Menu.Item>
             <Menu.Item as='a'>Home</Menu.Item>
+            <Menu.Item href='//google.com' target='_blank'>About</Menu.Item>
 
+            {/* right side of fixed nav bar */}
             <Menu.Menu position='right'>
               <Menu.Item>
-                <Button as='a'>{this.props.currentUser.display_name}</Button>
+                <Button color='blue' as='a'>{this.props.currentUser.display_name}</Button>
               </Menu.Item>
               <Menu.Item>
                 <LogOut />
               </Menu.Item>
-              {/* <Menu.Item className='item'>
-                <Button as='a'>Log in</Button>
-              </Menu.Item>
-              <Menu.Item>
-                <Button as='a' primary>Sign Up</Button>
-              </Menu.Item> */}
             </Menu.Menu>
           </Container>
         </Menu>
 
+        {/* body */}
         <Container text style={{ marginTop: '7em' }}>
-          <Header as='h1'>Semantic UI React Fixed Template</Header>
-          <p>This is a basic fixed menu template using fixed size containers.</p>
-          <p>A text container is used for the main container, which is useful for single column layouts.</p>
-
-          <Image src='/assets/images/wireframe/media-paragraph.png' style={{ marginTop: '2em' }} />
-          <Image src='/assets/images/wireframe/paragraph.png' style={{ marginTop: '2em' }} />
-          <Image src='/assets/images/wireframe/paragraph.png' style={{ marginTop: '2em' }} />
-          <Image src='/assets/images/wireframe/paragraph.png' style={{ marginTop: '2em' }} />
-          <Image src='/assets/images/wireframe/paragraph.png' style={{ marginTop: '2em' }} />
-          <Image src='/assets/images/wireframe/paragraph.png' style={{ marginTop: '2em' }} />
-          <Image src='/assets/images/wireframe/paragraph.png' style={{ marginTop: '2em' }} />
+          <Header as='h1'>Main body</Header>
+          <p>blah blah</p>
         </Container>
 
+        {/* footer */}
         <Segment
           inverted
           vertical
@@ -104,6 +93,7 @@ class Base extends Component {
                 size='mini'
                 src='/invertedLogo.png'
               />
+              <br/>
               <List horizontal inverted divided link>
                 <List.Item as='a' href='#'>Site Map</List.Item>
                 <List.Item as='a' href='#'>Contact Us</List.Item>
@@ -118,7 +108,8 @@ class Base extends Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  // console.log("the current state is", state);
+  return { currentUser: state.currentUser };
 }
 
-export default connect(mapStateToProps)(Base);
+export default connect(mapStateToProps)(SpotifyContainer);
