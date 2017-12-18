@@ -1,12 +1,11 @@
-export function userReducer(state = {}, action) {
+export function userReducer(state = { currentUser: {} }, action) {
   switch (action.type) {
     case 'FETCH_USER':
-      return action.payload;
+      return { currentUser: action.payload };
     case 'LOGOUT_USER':
-      localStorage.clear();
       return {};
     case 'LOGIN_USER':
-      return action.payload;
+      return { currentUser: action.payload };
     default:
       return state;
   }

@@ -19,7 +19,7 @@ export function loginUser(code, history) {
 
 export function fetchUser(jwt, history) {
   return (dispatch) => {
-    return fetch('http://localhost:3000/api/v1/fetch_user', {
+    return fetch(`${URL}/fetch_user`, {
       method: 'POST',
       headers: Headers(),
       body: JSON.stringify({ jwt })
@@ -31,20 +31,21 @@ export function fetchUser(jwt, history) {
   };
 };
 
-export function logOutUser(history) {
-  localStorage.clear();
-  history.push("/");
+export function logOutUser() {
+  return dispatch => {
+    localStorage.clear();
+    return {};
+  };
 }
 
-// export function fetchTracks(code) {
+// export function fetchTracks() {
+//   console.log("inside fetchTracks action");
+//   console.log("-------------------");
 //   return (dispatch) => {
-//     return fetch('http://localhost:3000/api/v1/top_tracks', { headers: Headers(),
-//       // body: JSON.stringify({ code })
-//     })
+//     return fetch(`${URL}/top_tracks`, { headers: Headers() })
 //     .then(res => res.json())
-//     .then(data => {
-//         // localStorage.setItem("jwt", user.code)
-//        dispatch({ type: 'FETCH_TRACKS', payload: data.top_tracks.tracks })
+//     .then(data =>{
+//        dispatch({ type: 'FETCH_TRACKS', payload: data.top_tracks.items })
 //     });
 //   };
 // };

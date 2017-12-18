@@ -24,7 +24,7 @@ const NavigationBar = props => {
               <Button color='blue' as='a'>{props.currentUser}</Button>
             </Menu.Item>
             <Menu.Item>
-              <LogOut history={props.history} />
+              <LogOut />
             </Menu.Item>
           </Menu.Menu>
         </Container>
