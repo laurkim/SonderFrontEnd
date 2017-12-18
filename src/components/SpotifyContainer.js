@@ -30,7 +30,7 @@ class SpotifyContainer extends Component {
     return (
       <div>
         {/* nav bar at top of page */}
-        <NavigationBar currentUser={this.props.currentUser.display_name} />
+        <NavigationBar currentUser={this.props.currentUser.display_name} history={this.props.history}/>
 
 
         {/* body */}

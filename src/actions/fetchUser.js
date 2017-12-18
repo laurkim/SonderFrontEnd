@@ -31,6 +31,11 @@ export function fetchUser(jwt, history) {
   };
 };
 
+export function logOutUser(history) {
+  localStorage.clear();
+  history.push("/");
+}
+
 // export function fetchTracks(code) {
 //   return (dispatch) => {
 //     return fetch('http://localhost:3000/api/v1/top_tracks', { headers: Headers(),

@@ -19,7 +19,7 @@ class UserAuthorization extends Component {
   render(){
     return (
       <div>
-        <SpotifyContainer />
+        <SpotifyContainer history={this.props.history}/>
       </div>
     )
   }
