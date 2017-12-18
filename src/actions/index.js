@@ -38,14 +38,14 @@ export function logOutUser() {
   };
 }
 
-// export function fetchTracks() {
-//   console.log("inside fetchTracks action");
-//   console.log("-------------------");
-//   return (dispatch) => {
-//     return fetch(`${URL}/top_tracks`, { headers: Headers() })
-//     .then(res => res.json())
-//     .then(data =>{
-//        dispatch({ type: 'FETCH_TRACKS', payload: data.top_tracks.items })
-//     });
-//   };
-// };
+export function fetchTracks() {
+  console.log("inside fetchTracks action");
+  console.log("-------------------");
+  return (dispatch) => {
+    return fetch(`${URL}/top_tracks`, { headers: Headers() })
+    .then(res => res.json())
+    .then(data =>{
+       dispatch({ type: 'FETCH_TRACKS', payload: data.top_tracks.items })
+    });
+  };
+};
