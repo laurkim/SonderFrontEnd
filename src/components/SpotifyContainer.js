@@ -2,42 +2,36 @@ import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import TrackList from './TrackList';
 import * as actions from "../actions/index";
-import { Headers } from '../Adapters/Headers';
-import { Container, Header, Button } from 'semantic-ui-react'
+import { Container, Header } from 'semantic-ui-react'
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
-const URL = "http://localhost:3000/api/v1";
-
 
 class SpotifyContainer extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      topTracks: []
-    }
-  }
 
   componentWillReceiveProps(nextProps) {
-    nextProps.currentUser ?
-      this.props.fetchTracks()
-    : null
+    console.log("inside component will receive props");
+    console.log("nextProps is", nextProps);
+    console.log("nextProps !== this.props", nextProps !== this.props);
+    console.log("---------------------");
+    nextProps.currentUser && nextProps.topTracks.topTracks.length === 0 ?
+      this.props.fetchTracks() : null
   }
 
   render() {
+    console.log("spotify container is rendering");
+    console.log("this.props is", this.props);
+    console.log("--------------------");
     return (
       <div>
-        {/* nav bar at top of page */}
-        <NavigationBar currentUser={this.props.currentUser.display_name} history={this.props.history}/>
+        <NavigationBar currentUser={this.props.currentUser.display_name} />
 
-
-        {/* body */}
         <Container text style={{ marginTop: '7em' }}>
           <Header as='h1'>Main body</Header>
-          <p>blah blah</p>
+          {this.props.topTracks ?
+            <TrackList topTracks={this.props.topTracks} /> : null
+          }
         </Container>
 
-        {/* footer */}
         <Footer />
         </div>
     )
@@ -45,10 +39,9 @@ class SpotifyContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  debugger;
   return {
     currentUser: state.currentUser.currentUser,
-    topTracks: state.tracks
+    topTracks: state.topTracks
   };
 }
 

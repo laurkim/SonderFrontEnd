@@ -2,25 +2,21 @@ import React, { Component } from 'react';
 
 
 class TrackList extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      topTracks: []
-    }
+  constructor(props) {
+    super(props);
   }
 
-  componentDidMount() {
-    console.log("inside track list");
-    fetch(`${URL}/top_tracks`, { headers: Headers() })
-    .then(resp => resp.json())
-    .then(data => {debugger})
-    //         // this.setState({ topTracks: data.top_tracks.tracks }));
+  componentWillReceiveProps(nextProps) {
+    console.log("inside tracklist");
+    console.log("component will r pr where nextProps is", nextProps);
+    console.log("--------------------");
   }
 
   // const tracks = props.topTracks.map(prop => {return <li>prop.id</li>});
 
   render() {
+    console.log("tracklist is rendering");
+    console.log("------------------");
     return (
       <div>
         <ul>

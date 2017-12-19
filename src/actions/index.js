@@ -11,8 +11,9 @@ export function loginUser(code, history) {
     .then(res => res.json())
     .then(user => {
       localStorage.setItem("jwt", user.code)
-       dispatch({ type: 'LOGIN_USER', payload: user.currentUser })
-       history.push("/home")
+      user.currentUser.username === "keeemster" ? user.currentUser.display_name = "Laura" : null
+      dispatch({ type: 'LOGIN_USER', payload: user.currentUser })
+      history.push("/home")
     });
   };
 };
@@ -26,7 +27,8 @@ export function fetchUser(jwt, history) {
     })
     .then(res => res.json())
     .then(user => {
-       dispatch({ type: 'FETCH_USER', payload: user.currentUser })
+      user.currentUser.username === "keeemster" ? user.currentUser.display_name = "Laura" : null
+      dispatch({ type: 'FETCH_USER', payload: user.currentUser })
     });
   };
 };
@@ -40,11 +42,11 @@ export function logOutUser() {
 
 export function fetchTracks() {
   console.log("inside fetchTracks action");
-  console.log("-------------------");
+  console.log("---------");
   return (dispatch) => {
     return fetch(`${URL}/top_tracks`, { headers: Headers() })
     .then(res => res.json())
-    .then(data =>{
+    .then(data => {
        dispatch({ type: 'FETCH_TRACKS', payload: data.top_tracks.items })
     });
   };
