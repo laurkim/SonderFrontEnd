@@ -6,15 +6,17 @@ import SpotifyContainer from './SpotifyContainer';
 
 class UserAuthorization extends Component {
   componentDidMount() {
-    if (this.props.location.search.length !== 0) {
-      const code = this.props.location.search.split("?code=")[1]
-      this.props.loginUser(code, this.props.history)
-      this.props.history.push("/home")
+    const location = this.props.location.search;
+    const history = this.props.history;
+    if (location.length !== 0) {
+      const code = location.split("?code=")[1]
+      this.props.loginUser(code, history)
+      history.push("/home")
     } else if (localStorage.length > 0) {
       const token = localStorage.jwt;
-      this.props.fetchUser(token, this.props.history)
+      this.props.fetchUser(token, history)
     } else {
-      this.props.history.push("/");
+      history.push("/");
     }
   }
 

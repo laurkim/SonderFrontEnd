@@ -9,27 +9,28 @@ import Footer from './Footer';
 class SpotifyContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
-    console.log("inside component will receive props");
-    console.log("nextProps is", nextProps);
-    console.log("nextProps !== this.props", nextProps !== this.props);
-    console.log("---------------------");
-    nextProps.currentUser && nextProps.topTracks.topTracks.length === 0 ?
+    // console.log("inside component will receive props");
+    // console.log("nextProps is", nextProps);
+    // console.log("nextProps !== this.props", nextProps !== this.props);
+    // console.log("---------------------");
+    nextProps.currentUser && nextProps.topTracks.length === 0 ?
       this.props.fetchTracks() : null
   }
 
   render() {
-    console.log("spotify container is rendering");
-    console.log("this.props is", this.props);
-    console.log("--------------------");
+    // console.log("spotify container is rendering");
+    // console.log("this.props is", this.props);
+    // console.log("--------------------");
     return (
       <div>
         <NavigationBar currentUser={this.props.currentUser.display_name} />
 
         <Container text style={{ marginTop: '7em' }}>
-          <Header as='h1'>Main body</Header>
-          {this.props.topTracks ?
+          <Header as='h1'>In your own words, what do you look for in a song?</Header>
+
+          {/* {this.props.topTracks ?
             <TrackList topTracks={this.props.topTracks} /> : null
-          }
+          } */}
         </Container>
 
         <Footer />
@@ -41,7 +42,7 @@ class SpotifyContainer extends Component {
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser.currentUser,
-    topTracks: state.topTracks
+    topTracks: state.topTracks.topTracks
   };
 }
 

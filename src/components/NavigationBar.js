@@ -13,7 +13,7 @@ const NavigationBar = props => {
               src='/invertedLogo.png'
               style={{ marginRight: '1.5em' }}
             />
-            Differentia
+            LoDali
           </Menu.Item>
           <Menu.Item as='a'>Home</Menu.Item>
           <Menu.Item href='//google.com' target='_blank'>About</Menu.Item>
