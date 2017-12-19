@@ -4,23 +4,16 @@ import TrackList from './TrackList';
 import * as actions from "../actions/index";
 import { Grid, Container, Header, Input, Button } from 'semantic-ui-react'
 import NavigationBar from './NavigationBar';
-import PersonalityInsight from './PersonalityInsight';
+import PersonalityForm from './PersonalityForm';
 import Footer from './Footer';
 
 class SpotifyContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
-    // console.log("inside component will receive props");
-    // console.log("nextProps is", nextProps);
-    // console.log("nextProps !== this.props", nextProps !== this.props);
-    // console.log("---------------------");
     if (nextProps.topTracks.length === 0) this.props.fetchTracks();
   }
 
   render() {
-    console.log("props in spotify container are", this.props);
-    // console.log("spotify container is rendering");
-    console.log("--------------------");
     return (
       <div>
         <NavigationBar currentUser={this.props.currentUser.display_name} />
@@ -32,7 +25,7 @@ class SpotifyContainer extends Component {
             <Grid.Column width={10}>
               <Container text style={{ marginTop: '7em' }}>
                 <Header as='h1' textAlign='center'>In your own words, what do you look for in a song?</Header>
-                <PersonalityInsight />
+                <PersonalityForm />
               </Container>
             </Grid.Column>
             <Grid.Column width={3}>
@@ -55,7 +48,6 @@ class SpotifyContainer extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-
 
         <Footer />
         </div>

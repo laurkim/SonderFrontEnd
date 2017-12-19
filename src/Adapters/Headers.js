@@ -5,3 +5,11 @@ export function Headers() {
     'Authorization': localStorage.getItem('jwt')
   };
 };
+
+export function WatsonHeaders() {
+  return {
+    'Content-Type': 'text/plain',
+    'Accept': 'application/json',
+    'Authorization': localStorage.getItem('jwt')
+  };
+}
