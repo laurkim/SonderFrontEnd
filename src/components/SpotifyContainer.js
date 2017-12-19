@@ -18,7 +18,7 @@ class SpotifyContainer extends Component {
   }
 
   render() {
-    console.log("props in spotify container are", this.props);
+    // console.log("props in spotify container are", this.props);
     // console.log("spotify container is rendering");
     // console.log("this.props is", this.props);
     // console.log("--------------------");
@@ -62,7 +62,7 @@ class SpotifyContainer extends Component {
         </div>
     )
   }
-}
+};
 
 function mapStateToProps(state) {
   return {

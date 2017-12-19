@@ -9,9 +9,9 @@ class UserAuthorization extends Component {
     const location = this.props.location.search;
     const history = this.props.history;
     if (location.length !== 0) {
-      const code = location.split("?code=")[1]
-      this.props.loginUser(code, history)
-      history.push("/home")
+      const code = location.split("?code=")[1];
+      this.props.loginUser(code, history);
+      history.push("/home");
     } else if (localStorage.length > 0) {
       const token = localStorage.jwt;
       this.props.fetchUser(token, history)

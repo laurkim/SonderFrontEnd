@@ -62,7 +62,7 @@ const Footer = () => {
           </Container>
         </Segment>
     </div>
-  )
+  );
 };
 
 export default Footer;

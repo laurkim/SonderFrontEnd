@@ -16,11 +16,11 @@ class LogOut extends Component {
         <Button basic color='blue' onClick={this.logOut}>Log Out</Button>
       </div>
     )
-  }
+  };
 }
 
 const mapStateToProps = state => {
   return { currentUser: state.currentUser };
-}
+};
 
 export default withRouter(connect(mapStateToProps, actions)(LogOut));

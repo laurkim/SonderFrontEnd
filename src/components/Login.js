@@ -18,7 +18,7 @@ const Login = () => {
       </div>
     </Container>
   </div>
-  )
-}
+);
+};
 
 export default Login;
