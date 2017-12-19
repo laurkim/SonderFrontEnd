@@ -49,7 +49,7 @@ class SpotifyContainer extends Component {
               {/* {this.props.topTracks ?
                 <TrackList topTracks={this.props.topTracks} /> : null
               } */}
-              <p onClick={this.props.myActionCreator}> where does this show up</p>
+              <p> where does this show up</p>
             </Grid.Column>
             <Grid.Column width={3}>
               {/* Internal padding */}
@@ -69,6 +69,6 @@ function mapStateToProps(state) {
     currentUser: state.currentUser,
     topTracks: state.topTracks
   };
-}
+};
 
 export default connect(mapStateToProps, actions)(SpotifyContainer);

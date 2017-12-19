@@ -1,5 +1,5 @@
 import { Headers } from '../Adapters/Headers';
-const URL = 'http://localhost:3000/api/v1'
+const URL = 'http://localhost:3000/api/v1';
 
 export function loginUser(code, history) {
   return (dispatch) => {
@@ -38,7 +38,7 @@ export function logOutUser() {
     localStorage.clear();
     return {};
   };
-}
+};
 
 export function fetchTracks() {
   return (dispatch) => {
@@ -49,8 +49,3 @@ export function fetchTracks() {
     });
   };
 };
-
-
-export function myActionCreator() {
-  return {type: 'HELLO_WORLD'}
-}
