@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Icon, Form } from 'semantic-ui-react';
 
-class PersonalityInput extends Component {
+class PersonalityInsight extends Component {
   constructor() {
     super()
 
@@ -34,4 +34,4 @@ class PersonalityInput extends Component {
   }
 }
 
-export default PersonalityInput;
+export default PersonalityInsight;

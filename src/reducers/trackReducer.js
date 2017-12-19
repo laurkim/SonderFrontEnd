@@ -4,7 +4,7 @@ export function trackReducer(state = [], action) {
   // console.log("---------------");
   switch (action.type) {
     case 'FETCH_TRACKS':
-      return { topTracks: [...action.payload] };
+      return [...action.payload];
     default:
       return state;
   }
