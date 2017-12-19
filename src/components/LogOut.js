@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router'
-import { Button } from 'semantic-ui-react'
+import { withRouter } from 'react-router';
+import { Button } from 'semantic-ui-react';
 import * as actions from '../actions/index';
 import { connect }  from 'react-redux';
 

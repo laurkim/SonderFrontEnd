@@ -11,7 +11,7 @@ export function loginUser(code, history) {
     .then(res => res.json())
     .then(user => {
       localStorage.setItem("jwt", user.code)
-      user.currentUser.username === "keeemster" ? user.currentUser.display_name = "Laura" : null
+      if (user.currentUser.username === "keeemster") user.currentUser.display_name = "Laura";
       dispatch({ type: 'LOGIN_USER', payload: user.currentUser })
       history.push("/home")
     });
@@ -27,7 +27,7 @@ export function fetchUser(jwt, history) {
     })
     .then(res => res.json())
     .then(user => {
-      user.currentUser.username === "keeemster" ? user.currentUser.display_name = "Laura" : null
+      if (user.currentUser.username === "keeemster") user.currentUser.display_name = "Laura";
       dispatch({ type: 'FETCH_USER', payload: user.currentUser })
     });
   };
@@ -41,8 +41,6 @@ export function logOutUser() {
 }
 
 export function fetchTracks() {
-  console.log("inside fetchTracks action");
-  console.log("---------");
   return (dispatch) => {
     return fetch(`${URL}/top_tracks`, { headers: Headers() })
     .then(res => res.json())
@@ -51,3 +49,8 @@ export function fetchTracks() {
     });
   };
 };
+
+
+export function myActionCreator() {
+  return {type: 'HELLO_WORLD'}
+}
