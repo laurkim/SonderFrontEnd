@@ -11,7 +11,8 @@ class SpotifyContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser.display_name && nextProps.topTracks.length === 0) {
-      nextProps.fetchTracks()
+      nextProps.fetchTracks();
+      nextProps.fetchArtists();
     }
 
     if (nextProps.topTracks.length > 0 && this.props.trackFeatures.length === 0) {
@@ -33,7 +34,7 @@ class SpotifyContainer extends Component {
             <Grid.Column width={10}>
               <Container text style={{ marginTop: '7em' }}>
                 <Header as='h1' textAlign='center'>What type of music do you like?</Header>
-                <PersonalityForm />
+                <PersonalityForm topArtists={this.props.topArtists} />
               </Container>
             </Grid.Column>
             <Grid.Column width={3}>
@@ -69,7 +70,8 @@ function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
     topTracks: state.topTracks,
-    trackFeatures: state.trackFeatures
+    trackFeatures: state.trackFeatures,
+    topArtists: state.topArtists
   };
 };
 

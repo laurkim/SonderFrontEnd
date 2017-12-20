@@ -50,6 +50,16 @@ export function fetchTracks() {
   };
 };
 
+export function fetchArtists() {
+  return (dispatch) => {
+    return fetch(`${URL}/top_artists`, { headers: Headers() })
+    .then(res => res.json())
+    .then(data => {
+       dispatch({ type: 'FETCH_ARTISTS', payload: data.top_artists.items })
+    });
+  };
+};
+
 export function fetchFeatures(trackIDs) {
   return (dispatch) => {
     return fetch(`${URL}/track_features?q=${trackIDs}`, { headers: Headers() })
