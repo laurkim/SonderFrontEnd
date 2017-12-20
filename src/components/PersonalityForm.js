@@ -62,7 +62,7 @@ class PersonalityForm extends Component {
           <Form.Button onClick={e => this.handleInputSubmit(e)}>Get Your Personality</Form.Button>
         </Form>
         <br/>
-        <PersonalityChart />
+        <PersonalityChart traits={this.state.personalityInsights}/>
       </div>
     );
   };
