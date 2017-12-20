@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
 import TrackDetail from './TrackDetail';
+import { Button, Icon, Image as ImageComponent, Item, Label } from 'semantic-ui-react';
 
 class TrackList extends Component {
-
   getTrackFeature = index => {
     return this.props.trackFeatures[index];
   }
 
   getTrack = () => {
+    console.log(this.props.topTracks);
     return this.props.topTracks.map((track, index) => {
-      return <li key={track.id}><TrackDetail title={track.name} id={track.id} artist={track.artists[0].name} feature={this.getTrackFeature(index)}/></li>
+      return (
+        <TrackDetail
+          title={track.name}
+          id={track.id}
+          artist={track.artists[0].name}
+          feature={this.getTrackFeature(index)}
+          albumCover={track.album.images[1].url}
+          albumName={track.album.name}
+        />
+      )
     });
   };
 
   render() {
     return (
-      <div align='center'>
-        <ol>
+      <div>
+        <Item.Group divided>
           {this.getTrack()}
-        </ol>
+        </Item.Group>
       </div>
     )
   }

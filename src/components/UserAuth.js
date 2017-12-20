@@ -27,6 +27,6 @@ class UserAuthorization extends Component {
       </div>
     )
   }
-}
+};
 
 export default connect(() => ({}), actions)(UserAuthorization);

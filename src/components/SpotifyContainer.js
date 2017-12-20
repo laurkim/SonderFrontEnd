@@ -22,6 +22,8 @@ class SpotifyContainer extends Component {
     }
   }
 
+
+
   render() {
     return (
       <div>
@@ -34,7 +36,7 @@ class SpotifyContainer extends Component {
             <Grid.Column width={10}>
               <Container text style={{ marginTop: '7em' }}>
                 <Header as='h1' textAlign='center'>What type of music do you like?</Header>
-                <PersonalityForm topArtists={this.props.topArtists} />
+                <PersonalityForm topArtists={this.props.topArtists} topTracks={this.props.topTracks} />
               </Container>
             </Grid.Column>
             <Grid.Column width={3}>
@@ -48,14 +50,16 @@ class SpotifyContainer extends Component {
             <Grid.Column width={1}>
               {/* Internal padding */}
             </Grid.Column>
-            <Grid.Column width={14}>
+            <Grid.Column width={7}>
               {this.props.trackFeatures.length !== 0 ?
-                <TrackList align='center' topTracks={this.props.topTracks} trackFeatures={this.props.trackFeatures}/> : null
+                <TrackList topTracks={this.props.topTracks} trackFeatures={this.props.trackFeatures} /> : null
               }
-              {/* <p align='center'>hmmmmmmmmmmmmm.....</p> */}
+            </Grid.Column>
+            <Grid.Column width={7}>
+              {/* Splitting middle grid into two */}
             </Grid.Column>
             <Grid.Column width={1}>
-              {/* Internal padding */}
+
             </Grid.Column>
           </Grid.Row>
         </Grid>

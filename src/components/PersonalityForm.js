@@ -3,7 +3,7 @@ import { Input, Icon, Form } from 'semantic-ui-react';
 import { WatsonHeaders } from '../Adapters/Headers';
 import { Headers } from '../Adapters/Headers';
 import PersonalityChart from './PersonalityChart';
-const URL = 'http://localhost:3000/api/v1';
+const URL = 'http://localhost:3000/api/v1/personality_insights?';
 
 class PersonalityForm extends Component {
   constructor() {
@@ -12,7 +12,8 @@ class PersonalityForm extends Component {
     this.state = {
       personalityInput: '',
       personalityInsights: [],
-      genres: ''
+      genres: '',
+      combinedInput: ''
     }
   }
 
@@ -20,15 +21,9 @@ class PersonalityForm extends Component {
     if (nextProps.topArtists.length !== this.props.topArtists.length) {
       let genresArray = nextProps.topArtists.map(artist => artist.genres);
       let flattened = [].concat.apply([], genresArray);
-      let words = flattened.join(", ").replace(/&/g, ' and ');
-      this.setState({genres: words}, () => {this.fetchPersonalityInsight()})
+      let words = flattened.join(", ").replace(/&/g, ' and ').replace(/;/g, '');
+      this.setState({genres: words});
     }
-  }
-
-  updateGenres = words => {
-    console.log("inside update genres");
-    this.setState({ genres: words })
-    console.log("state is", this.state.genres);
   }
 
   handleInputChange = event => {
@@ -37,12 +32,20 @@ class PersonalityForm extends Component {
 
   handleInputSubmit = event => {
     event.preventDefault();
-    this.fetchPersonalityInsight();
+    this.combineInput(this.state.personalityInput);
     this.setState({ personalityInput: '' });
   }
 
+  combineInput = input => {
+    const songTitles = this.props.topTracks.map(track => track.name).join(" ");
+    const query = `${input} ${this.state.genres} ${songTitles}`;
+    this.setState({ combinedInput: query },
+      () => this.fetchPersonalityInsight(this.state.combinedInput)
+    );
+  }
+
   fetchPersonalityInsight = () => {
-    fetch(`${URL}/personality_insights?q=${this.state.genres}`, {headers: WatsonHeaders()})
+    fetch(`${URL}q=${this.state.combinedInput}`, {headers: WatsonHeaders()})
       .then(res => res.json())
       .then(data => this.setState({
         personalityInsights: data.personality_insights.personality },
@@ -57,12 +60,15 @@ class PersonalityForm extends Component {
         <Form>
           <Form.TextArea
             value = {this.state.personalityInput}
-            placeholder='Write your thoughts here...'
+            placeholder='The more input you provide, the more accurate your personality results will be...'
             onChange={e => this.handleInputChange(e)}/>
           <Form.Button onClick={e => this.handleInputSubmit(e)}>Get Your Personality</Form.Button>
         </Form>
         <br/>
-        <PersonalityChart traits={this.state.personalityInsights}/>
+        {
+          this.state.combinedInput !== '' ?
+          <PersonalityChart traits={this.state.personalityInsights} /> : null
+        }
       </div>
     );
   };

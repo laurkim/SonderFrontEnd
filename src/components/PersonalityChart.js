@@ -7,7 +7,8 @@ class PersonalityChart extends Component {
     super();
 
     this.state = {
-      chartData: {}
+      chartData: {},
+      options: {}
     }
   }
 
@@ -15,7 +16,7 @@ class PersonalityChart extends Component {
     if (nextProps.traits.length !== this.props.traits.length) {
       const traits = nextProps.traits;
       const data = {
-        labels: ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Emotional Range'],
+        labels: ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism'],
         datasets: [
           {
             label: 'Your Personality Traits',
@@ -29,7 +30,16 @@ class PersonalityChart extends Component {
           }
         ]
       };
-      this.setState({ chartData: data }, () => this.returnChartData());
+      const options = {
+        scale: {
+          // Hides the scale
+          display: false
+        }
+      };
+      this.setState({
+        chartData: data,
+        options
+       }, () => this.returnChartData());
     }
   }
 

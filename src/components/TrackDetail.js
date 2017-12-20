@@ -1,20 +1,32 @@
 import React from 'react';
-import { Image, Header } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
+import { Button, Icon, Image as ImageComponent, Item, Label } from 'semantic-ui-react';
 
 const TrackDetail = props => {
+  console.log(props);
+  const { liveness, danceability, energy, valence } = props.feature;
   return (
-    <div align='center'>
-      <Header as='h3'>
-        <Header.Content>
-          {props.title} by {props.artist}
-        </Header.Content>
-      </Header>
-      <p>Liveness: {props.feature.liveness}</p>
-      <p>Danceability: {props.feature.danceability}</p>
-      <p>Energy: {props.feature.energy}</p>
-      <p>Happiness: {props.feature.valence}</p>
-      <br/>
-    </div>
+      <Item>
+        <Item.Image src={props.albumCover} width="120" height="120" />
+        <Item.Content>
+          <Item.Header as='a'>
+            {props.title}
+          </Item.Header>
+          <Item.Meta>
+            {props.artist}
+          </Item.Meta>
+          <Item.Description>
+            <li>Liveness: {liveness}</li>
+            <li>Danceability: {danceability}</li>
+            <li>Energy: {energy}</li>
+            <li>Valence: {valence}</li>
+          </Item.Description>
+          <Item.Extra>
+            <Label icon='square'>{props.albumName}</Label>
+          </Item.Extra>
+        </Item.Content>
+      </Item>
+
   )
 };
 
