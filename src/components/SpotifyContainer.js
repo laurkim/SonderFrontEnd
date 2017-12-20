@@ -10,7 +10,15 @@ import Footer from './Footer';
 class SpotifyContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.topTracks.length === 0) this.props.fetchTracks();
+    if (nextProps.currentUser.display_name && nextProps.topTracks.length === 0) {
+      nextProps.fetchTracks()
+    }
+
+    if (nextProps.topTracks.length > 0 && this.props.trackFeatures.length === 0) {
+      const trackIDsArray = nextProps.topTracks.map(track => track.id);
+      const trackIDs = trackIDsArray.join(",");
+      nextProps.fetchFeatures(trackIDs);
+    }
   }
 
   render() {
@@ -24,7 +32,7 @@ class SpotifyContainer extends Component {
             </Grid.Column>
             <Grid.Column width={10}>
               <Container text style={{ marginTop: '7em' }}>
-                <Header as='h1' textAlign='center'>In your own words, what do you look for in a song?</Header>
+                <Header as='h1' textAlign='center'>What type of music do you like?</Header>
                 <PersonalityForm />
               </Container>
             </Grid.Column>
@@ -33,15 +41,17 @@ class SpotifyContainer extends Component {
             </Grid.Column>
           </Grid.Row>
 
+          <Grid.Row />
+
           <Grid.Row>
             <Grid.Column width={3}>
               {/* Internal padding */}
             </Grid.Column>
             <Grid.Column width={10}>
-              {/* {this.props.topTracks ?
-                <TrackList topTracks={this.props.topTracks} /> : null
+              {/* {this.props.trackFeatures.length !== 0 ?
+                <TrackList topTracks={this.props.topTracks} trackFeatures={this.props.trackFeatures}/> : null
               } */}
-              <p> where does this show up</p>
+              <p align='center'>hmmmmmmmmmmmmm.....</p>
             </Grid.Column>
             <Grid.Column width={3}>
               {/* Internal padding */}
@@ -58,7 +68,8 @@ class SpotifyContainer extends Component {
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
-    topTracks: state.topTracks
+    topTracks: state.topTracks,
+    trackFeatures: state.trackFeatures
   };
 };
 

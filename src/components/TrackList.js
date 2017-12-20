@@ -1,29 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class TrackList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log("inside tracklist");
-    console.log("component will r pr where nextProps is", nextProps);
-    console.log("--------------------");
-  }
-
-  // const tracks = props.topTracks.map(prop => {return <li>prop.id</li>});
-
-  render() {
-    console.log("tracklist is rendering");
-    console.log("------------------");
+const TrackList = props => {
+    console.log("inside trackList");
+    console.log(props);
     return (
       <div>
-        <ul>
+        {/* <ul> */}
           {/* {tracks} */}
-        </ul>
+        {/* </ul> */}
       </div>
     )
   }
-}
 
 export default TrackList;

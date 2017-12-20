@@ -12,4 +12,4 @@ export function WatsonHeaders() {
     'Accept': 'application/json',
     'Authorization': localStorage.getItem('jwt')
   };
-}
+};

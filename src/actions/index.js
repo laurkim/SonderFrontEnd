@@ -49,3 +49,13 @@ export function fetchTracks() {
     });
   };
 };
+
+export function fetchFeatures(trackIDs) {
+  return (dispatch) => {
+    return fetch(`${URL}/track_features?q=${trackIDs}`, { headers: Headers() })
+    .then(res => res.json())
+    .then(data => {
+       dispatch({ type: 'FETCH_FEATURES', payload: data.track_features.audio_features })
+    });
+  };
+};
