@@ -3,7 +3,7 @@ import { Image, Header } from 'semantic-ui-react';
 
 const TrackDetail = props => {
   return (
-    <div>
+    <div align='center'>
       <Header as='h3'>
         <Header.Content>
           {props.title} by {props.artist}

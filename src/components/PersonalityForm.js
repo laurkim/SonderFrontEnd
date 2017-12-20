@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Input, Icon, Form } from 'semantic-ui-react';
 import { WatsonHeaders } from '../Adapters/Headers';
 import { Headers } from '../Adapters/Headers';
+import PersonalityChart from './PersonalityChart';
 const URL = 'http://localhost:3000/api/v1';
 
 class PersonalityForm extends Component {
@@ -19,7 +20,7 @@ class PersonalityForm extends Component {
     if (nextProps.topArtists.length !== this.props.topArtists.length) {
       let genresArray = nextProps.topArtists.map(artist => artist.genres);
       let flattened = [].concat.apply([], genresArray);
-      let words = flattened.join(", ");
+      let words = flattened.join(", ").replace(/&/g, ' and ');
       this.setState({genres: words}, () => {this.fetchPersonalityInsight()})
     }
   }
@@ -44,7 +45,7 @@ class PersonalityForm extends Component {
     fetch(`${URL}/personality_insights?q=${this.state.genres}`, {headers: WatsonHeaders()})
       .then(res => res.json())
       .then(data => this.setState({
-        personalityInsights: data.personality_insights },
+        personalityInsights: data.personality_insights.personality },
         () => console.log(this.state.personalityInsights)
       )
     )
@@ -60,6 +61,8 @@ class PersonalityForm extends Component {
             onChange={e => this.handleInputChange(e)}/>
           <Form.Button onClick={e => this.handleInputSubmit(e)}>Get Your Personality</Form.Button>
         </Form>
+        <br/>
+        <PersonalityChart />
       </div>
     );
   };

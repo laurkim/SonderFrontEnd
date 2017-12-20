@@ -15,7 +15,7 @@ class TrackList extends Component {
 
   render() {
     return (
-      <div>
+      <div align='center'>
         <ol>
           {this.getTrack()}
         </ol>

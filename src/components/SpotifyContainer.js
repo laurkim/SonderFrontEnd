@@ -52,7 +52,7 @@ class SpotifyContainer extends Component {
               {this.props.trackFeatures.length !== 0 ?
                 <TrackList align='center' topTracks={this.props.topTracks} trackFeatures={this.props.trackFeatures}/> : null
               }
-              <p align='center'>hmmmmmmmmmmmmm.....</p>
+              {/* <p align='center'>hmmmmmmmmmmmmm.....</p> */}
             </Grid.Column>
             <Grid.Column width={1}>
               {/* Internal padding */}
