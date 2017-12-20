@@ -44,16 +44,16 @@ class SpotifyContainer extends Component {
           <Grid.Row />
 
           <Grid.Row>
-            <Grid.Column width={3}>
+            <Grid.Column width={1}>
               {/* Internal padding */}
             </Grid.Column>
-            <Grid.Column width={10}>
-              {/* {this.props.trackFeatures.length !== 0 ?
-                <TrackList topTracks={this.props.topTracks} trackFeatures={this.props.trackFeatures}/> : null
-              } */}
+            <Grid.Column width={14}>
+              {this.props.trackFeatures.length !== 0 ?
+                <TrackList align='center' topTracks={this.props.topTracks} trackFeatures={this.props.trackFeatures}/> : null
+              }
               <p align='center'>hmmmmmmmmmmmmm.....</p>
             </Grid.Column>
-            <Grid.Column width={3}>
+            <Grid.Column width={1}>
               {/* Internal padding */}
             </Grid.Column>
           </Grid.Row>
