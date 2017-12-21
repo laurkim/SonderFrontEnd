@@ -1,4 +1,5 @@
 import { Headers } from '../Adapters/Headers';
+import { WatsonHeaders } from '../Adapters/Headers';
 const URL = 'http://localhost:3000/api/v1';
 
 export function loginUser(code, history) {
@@ -66,6 +67,16 @@ export function fetchFeatures(trackIDs) {
     .then(res => res.json())
     .then(data => {
        dispatch({ type: 'FETCH_FEATURES', payload: data.track_features.audio_features })
+    });
+  };
+};
+
+export function fetchPersonality(input) {
+  return (dispatch) => {
+    return fetch(`${URL}/personality_insights?q=${input}`, { headers: WatsonHeaders() })
+    .then(res => res.json())
+    .then(data => {
+      dispatch({ type: 'FETCH_PERSONALITY', payload: data.personality_insights.personality })
     });
   };
 };

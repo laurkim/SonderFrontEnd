@@ -1,5 +1,4 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
 import { Button, Image as ImageComponent, Item, Label } from 'semantic-ui-react';
 import { Image } from 'semantic-ui-react';
 

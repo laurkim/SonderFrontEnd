@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Input, Icon, Form } from 'semantic-ui-react';
-import { WatsonHeaders } from '../Adapters/Headers';
-import { Headers } from '../Adapters/Headers';
-import PersonalityChart from './PersonalityChart';
-const URL = 'http://localhost:3000/api/v1/personality_insights?';
+import { connect }  from 'react-redux';
+import * as actions from "../actions/index";
+import { Form } from 'semantic-ui-react';
 
 class PersonalityForm extends Component {
   constructor() {
@@ -44,14 +42,8 @@ class PersonalityForm extends Component {
     );
   }
 
-  fetchPersonalityInsight = () => {
-    fetch(`${URL}q=${this.state.combinedInput}`, {headers: WatsonHeaders()})
-      .then(res => res.json())
-      .then(data => this.setState({
-        personalityInsights: data.personality_insights.personality },
-        () => console.log(this.state.personalityInsights)
-      )
-    )
+  fetchPersonalityInsight = input => {
+    this.props.fetchPersonality(input);
   };
 
   render() {
@@ -65,13 +57,19 @@ class PersonalityForm extends Component {
           <Form.Button onClick={e => this.handleInputSubmit(e)}>Get Your Personality</Form.Button>
         </Form>
         <br/>
-        {
-          this.state.combinedInput !== '' ?
-          <PersonalityChart traits={this.state.personalityInsights} /> : null
-        }
       </div>
     );
   };
 };
 
-export default PersonalityForm;
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser,
+    topTracks: state.topTracks,
+    trackFeatures: state.trackFeatures,
+    topArtists: state.topArtists,
+    personality: state.personalityTraits
+  };
+};
+
+export default connect(mapStateToProps, actions)(PersonalityForm);

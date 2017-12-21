@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TrackDetail from './TrackDetail';
-import { Button, Icon, Image as ImageComponent, Item, Label } from 'semantic-ui-react';
+import { Item } from 'semantic-ui-react';
 
 class TrackList extends Component {
   getTrackFeature = index => {
@@ -8,7 +8,6 @@ class TrackList extends Component {
   }
 
   getTrack = () => {
-    console.log(this.props.topTracks);
     return this.props.topTracks.map((track, index) => {
       return (
         <TrackDetail
@@ -26,7 +25,7 @@ class TrackList extends Component {
 
   render() {
     return (
-      <div>
+      <div id="scrollable">
         <Item.Group divided>
           {this.getTrack()}
         </Item.Group>

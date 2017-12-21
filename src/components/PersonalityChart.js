@@ -12,39 +12,38 @@ class PersonalityChart extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.traits.length !== this.props.traits.length) {
-      const traits = nextProps.traits;
-      const data = {
-        labels: ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism'],
-        datasets: [
-          {
-            label: 'Your Personality Traits',
-            backgroundColor: 'rgba(255,99,132,0.2)',
-            borderColor: 'rgba(255,99,132,1)',
-            pointBackgroundColor: 'rgba(255,99,132,1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [traits[0].raw_score, traits[1].raw_score, traits[2].raw_score, traits[3].raw_score, traits[4].raw_score]
-          }
-        ]
-      };
-      const options = {
-        scale: {
-          // Hides the scale
-          display: false
-        }
-      };
-      this.setState({
-        chartData: data,
-        options
-       }, () => this.returnChartData());
-    }
+  componentDidMount() {
+    this.setChartData();
   }
 
-  returnChartData = () => {
-    return this.state.chartData;
+  setChartData = () => {
+    const traits = this.props.traits;
+    const data = {
+      labels: ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism'],
+      datasets: [
+        {
+          label: 'Your Big5 Personality Traits',
+          backgroundColor: 'rgba(255,99,132,0.2)',
+          borderColor: 'rgba(255,99,132,1)',
+          pointBackgroundColor: 'rgba(255,99,132,1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(255,99,132,1)',
+          data: [traits[0].raw_score, traits[1].raw_score, traits[2].raw_score, traits[3].raw_score, traits[4].raw_score]
+        }
+      ]
+    }
+
+    const options = {
+      scale: {
+        display: false
+      }
+    };
+
+    this.setState({
+      chartData: data,
+      options
+    });
   }
 
   render() {
@@ -57,7 +56,7 @@ class PersonalityChart extends Component {
         </Header>
         <Header as='h4'>
           <Header.Content>
-            <Radar data={this.returnChartData} />
+            <Radar data={this.state.chartData} />
           </Header.Content>
         </Header>
       </div>
@@ -66,16 +65,3 @@ class PersonalityChart extends Component {
 };
 
 export default PersonalityChart;
-
-// export default React.createClass({
-//   displayName: 'RadarExample',
-//
-//   render() {
-//     return (
-//       <div>
-//         <h2>Radar Example</h2>
-//         <Radar data={data} />
-//       </div>
-//     );
-//   }
-// });

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as actions from '../actions/index';
 import { connect }  from 'react-redux';
-import { Route } from 'react-router-dom';
 import SpotifyContainer from './SpotifyContainer';
 
 class UserAuthorization extends Component {

@@ -2,3 +2,8 @@
   position: relative;
   bottom: 150px;
 }
+
+#scrollable {
+  overflow: auto;
+  max-height: 100vh;
+}

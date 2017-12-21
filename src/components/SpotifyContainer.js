@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import TrackList from './TrackList';
 import * as actions from "../actions/index";
-import { Grid, Container, Header, Input, Button } from 'semantic-ui-react'
+import { Grid, Container, Header } from 'semantic-ui-react'
 import NavigationBar from './NavigationBar';
 import PersonalityForm from './PersonalityForm';
+import PersonalityChart from './PersonalityChart';
 import Footer from './Footer';
 
 class SpotifyContainer extends Component {
@@ -21,8 +22,6 @@ class SpotifyContainer extends Component {
       nextProps.fetchFeatures(trackIDs);
     }
   }
-
-
 
   render() {
     return (
@@ -47,20 +46,20 @@ class SpotifyContainer extends Component {
           <Grid.Row />
 
           <Grid.Row>
-            <Grid.Column width={1}>
-              {/* Internal padding */}
-            </Grid.Column>
+            <Grid.Column width={2} />
             <Grid.Column width={7}>
               {this.props.trackFeatures.length !== 0 ?
                 <TrackList topTracks={this.props.topTracks} trackFeatures={this.props.trackFeatures} /> : null
               }
             </Grid.Column>
-            <Grid.Column width={7}>
-              {/* Splitting middle grid into two */}
-            </Grid.Column>
-            <Grid.Column width={1}>
 
+            <Grid.Column width={7}>
+              {this.props.personality.length !== undefined ?
+                <PersonalityChart traits={this.props.personality} /> : null
+              }
             </Grid.Column>
+            <Grid.Column width={2} />
+
           </Grid.Row>
         </Grid>
 
@@ -75,7 +74,8 @@ function mapStateToProps(state) {
     currentUser: state.currentUser,
     topTracks: state.topTracks,
     trackFeatures: state.trackFeatures,
-    topArtists: state.topArtists
+    topArtists: state.topArtists,
+    personality: state.personalityTraits
   };
 };
 
