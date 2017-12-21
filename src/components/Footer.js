@@ -41,7 +41,7 @@ const Footer = () => {
                 </Grid.Column>
                 <Grid.Column width={3}>
                   <Header inverted as='h4' content='Footer Header' />
-                  <p>LoDali analyzes a user's listening habits to provide insight on their personality traits.</p>
+                  <p>Sonder analyzes a user's listening habits to provide insight on their personality traits.</p>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

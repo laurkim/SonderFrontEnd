@@ -1,9 +1,10 @@
 import React from 'react';
 import { Header } from 'semantic-ui-react';
-import { Button, Icon, Image as ImageComponent, Item, Label } from 'semantic-ui-react';
+import { Button, Image as ImageComponent, Item, Label } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
 
 const TrackDetail = props => {
-  console.log(props);
+  const album = <ImageComponent src='/album.png' width='20' height='20' />;
   const { liveness, danceability, energy, valence } = props.feature;
   return (
       <Item>
@@ -22,7 +23,10 @@ const TrackDetail = props => {
             <li>Valence: {valence}</li>
           </Item.Description>
           <Item.Extra>
-            <Label icon='square'>{props.albumName}</Label>
+            <Label>
+              <Image avatar src='/albumLogo.png' width='5' height='5'/>
+              <span> {props.albumName}</span>
+            </Label>
           </Item.Extra>
         </Item.Content>
       </Item>

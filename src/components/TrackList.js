@@ -12,6 +12,7 @@ class TrackList extends Component {
     return this.props.topTracks.map((track, index) => {
       return (
         <TrackDetail
+          key={track.id}
           title={track.name}
           id={track.id}
           artist={track.artists[0].name}
