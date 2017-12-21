@@ -54,11 +54,7 @@ class PersonalityChart extends Component {
             Your Personality Traits
           </Header.Content>
         </Header>
-        <Header as='h4'>
-          <Header.Content>
-            <Radar data={this.state.chartData} />
-          </Header.Content>
-        </Header>
+        <Radar data={this.state.chartData} />
       </div>
     )
   }

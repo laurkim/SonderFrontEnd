@@ -29,7 +29,6 @@ const TrackDetail = props => {
           </Item.Extra>
         </Item.Content>
       </Item>
-
   )
 };
 

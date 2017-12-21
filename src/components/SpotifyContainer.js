@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect }  from 'react-redux';
-import TrackList from './TrackList';
 import * as actions from "../actions/index";
-import { Grid, Container, Header } from 'semantic-ui-react'
+import { Grid, Container, Header } from 'semantic-ui-react';
+import { slide as Menu } from 'react-burger-menu';
 import NavigationBar from './NavigationBar';
+import Footer from './Footer';
 import PersonalityForm from './PersonalityForm';
 import PersonalityChart from './PersonalityChart';
-import Footer from './Footer';
+import TrackList from './TrackList';
 
 class SpotifyContainer extends Component {
 
@@ -23,7 +24,25 @@ class SpotifyContainer extends Component {
     }
   }
 
+  renderTrackList = () => {
+    return (
+      <TrackList topTracks={this.props.topTracks} trackFeatures={this.props.trackFeatures} />
+    );
+  }
+
+  renderPersonalityChart = () => {
+    window.scrollTo(0, 275);
+    return (
+      <Grid.Column width={7}>
+        <PersonalityChart traits={this.props.personality} />
+      </Grid.Column>
+    );
+  }
+
   render() {
+
+    const padding = !this.props.personality.length ? 5 : 2
+
     return (
       <div>
         <NavigationBar currentUser={this.props.currentUser.display_name} />
@@ -46,20 +65,12 @@ class SpotifyContainer extends Component {
           <Grid.Row />
 
           <Grid.Row>
-            <Grid.Column width={2} />
-            <Grid.Column width={7}>
-              {this.props.trackFeatures.length !== 0 ?
-                <TrackList topTracks={this.props.topTracks} trackFeatures={this.props.trackFeatures} /> : null
-              }
+            <Grid.Column width={padding} />
+            <Grid.Column width={6}>
+              {this.props.trackFeatures.length !== 0 ? this.renderTrackList() : null}
             </Grid.Column>
-
-            <Grid.Column width={7}>
-              {this.props.personality.length !== undefined ?
-                <PersonalityChart traits={this.props.personality} /> : null
-              }
-            </Grid.Column>
-            <Grid.Column width={2} />
-
+            {!!this.props.personality.length ? this.renderPersonalityChart() : null}
+            <Grid.Column width={padding} />
           </Grid.Row>
         </Grid>
 
