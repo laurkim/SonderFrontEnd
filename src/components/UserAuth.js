@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import * as actions from '../actions/index';
 import { connect }  from 'react-redux';
-import SpotifyContainer from './SpotifyContainer';
+import SonderContainer from './SonderContainer';
 
 class UserAuthorization extends Component {
   componentDidMount() {
-    const location = this.props.location.search;
-    const history = this.props.history;
+    const props = this.props;
+    const location = props.location.search;
+    const history = props.history;
     if (location.length !== 0) {
       const code = location.split("?code=")[1];
-      this.props.loginUser(code, history);
+      props.loginUser(code, history);
       history.push("/home");
     } else if (localStorage.length > 0) {
       const token = localStorage.jwt;
-      this.props.fetchUser(token, history)
+      props.fetchUser(token, history)
     } else {
       history.push("/");
     }
@@ -22,7 +23,7 @@ class UserAuthorization extends Component {
   render(){
     return (
       <div>
-        <SpotifyContainer />
+        <SonderContainer />
       </div>
     )
   }

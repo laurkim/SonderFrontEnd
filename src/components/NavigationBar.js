@@ -1,27 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect }  from 'react-redux';
+import * as actions from "../actions/index";
+import { Link } from 'react-router-dom';
 import { Container, Image, Menu, Button } from 'semantic-ui-react';
 import LogOut from './LogOut';
 
-const NavigationBar = props => {
-  return (
-    <div>
-      <Menu fixed='top' inverted>
-        <Container>
-          <Menu.Item as='a' header>
-            <Image
-              size='mini'
-              src='/invertedLogo.png'
-              style={{ marginRight: '1.5em' }}
-            />
-            Sonder
+class NavigationBar extends Component {
+  render() {
+    return (
+      <div>
+        <Menu position='top' inverted>
+          <Container>
+            <Menu.Item header>
+              <Image
+                size='mini'
+                src='/invertedLogo.png'
+                style={{ marginRight: '1.5em' }}
+              />
+              Sonder
+            </Menu.Item>
+            <Menu.Item>
+              <Link to='/home'>
+                Home
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to='/about'>
+              About
+            </Link>
           </Menu.Item>
-          <Menu.Item as='a'>Home</Menu.Item>
-          <Menu.Item href='//google.com' target='_blank'>About</Menu.Item>
 
           {/* right side of fixed nav bar */}
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Button color='blue' as='a'>{props.currentUser}</Button>
+              <Button color='blue' as='a'>{this.props.currentUser.display_name}</Button>
             </Menu.Item>
             <Menu.Item>
               <LogOut />
@@ -32,5 +44,12 @@ const NavigationBar = props => {
     </div>
   )
 };
+}
 
-export default NavigationBar;
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser
+  };
+};
+
+export default connect(mapStateToProps, actions)(NavigationBar);

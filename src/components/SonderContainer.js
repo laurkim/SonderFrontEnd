@@ -3,13 +3,11 @@ import { connect }  from 'react-redux';
 import * as actions from "../actions/index";
 import { Grid, Container, Header } from 'semantic-ui-react';
 import { slide as Menu } from 'react-burger-menu';
-import NavigationBar from './NavigationBar';
-import Footer from './Footer';
 import PersonalityForm from './PersonalityForm';
 import PersonalityChart from './PersonalityChart';
 import TrackList from './TrackList';
 
-class SpotifyContainer extends Component {
+class SonderContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser.display_name && nextProps.topTracks.length === 0) {
@@ -40,10 +38,9 @@ class SpotifyContainer extends Component {
   }
 
   render() {
-    const padding = !this.props.personality.word_count ? 5 : 2
+    const padding = !this.props.personality.word_count ? 5 : 2;
     return (
       <div>
-        <NavigationBar currentUser={this.props.currentUser.display_name} />
         <Grid>
           <Grid.Row>
             <Grid.Column width={3}>
@@ -71,8 +68,6 @@ class SpotifyContainer extends Component {
             <Grid.Column width={padding} />
           </Grid.Row>
         </Grid>
-
-        <Footer />
         </div>
     )
   }
@@ -88,4 +83,4 @@ function mapStateToProps(state) {
   };
 };
 
-export default connect(mapStateToProps, actions)(SpotifyContainer);
+export default connect(mapStateToProps, actions)(SonderContainer);
