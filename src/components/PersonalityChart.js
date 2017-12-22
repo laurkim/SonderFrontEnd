@@ -34,15 +34,8 @@ class PersonalityChart extends Component {
       ]
     }
 
-    const options = {
-      scale: {
-        display: false
-      }
-    };
-
     this.setState({
       chartData: data,
-      options
     });
   }
 

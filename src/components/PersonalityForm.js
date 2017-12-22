@@ -18,9 +18,9 @@ class PersonalityForm extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.topArtists.length !== this.props.topArtists.length) {
       let genresArray = nextProps.topArtists.map(artist => artist.genres);
-      let flattened = [].concat.apply([], genresArray);
-      let words = flattened.join(", ").replace(/&/g, ' and ').replace(/;/g, '');
-      this.setState({genres: words});
+      let flattenedArray = [].concat.apply([], genresArray);
+      let combinedGenres = flattenedArray.join(", ").replace(/&/g, ' and ').replace(/;/g, '');
+      this.setState({genres: combinedGenres});
     }
   }
 

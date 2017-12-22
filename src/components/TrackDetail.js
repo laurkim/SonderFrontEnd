@@ -3,7 +3,6 @@ import { Button, Image as ImageComponent, Item, Label } from 'semantic-ui-react'
 import { Image } from 'semantic-ui-react';
 
 const TrackDetail = props => {
-  console.log(props.feature);
   const album = <ImageComponent src='/album.png' width='20' height='20' />;
   const { acousticness, danceability, energy, mode, instrumentalness, valence } = props.feature;
 
@@ -36,7 +35,7 @@ const TrackDetail = props => {
           <Item.Extra>
             <Label>
               <Image avatar src='/albumLogo.png' width='5' height='5'/>
-              <span>this will be a play button</span>
+              <span>play button</span>
             </Label>
           </Item.Extra>
         </Item.Content>
