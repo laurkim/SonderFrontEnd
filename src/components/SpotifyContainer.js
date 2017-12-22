@@ -41,10 +41,6 @@ class SpotifyContainer extends Component {
 
   render() {
     const padding = !this.props.personality.word_count ? 5 : 2
-    console.log("inside spotify container");
-    console.log("props are",this.props);
-    console.log("conditional is", !!this.props.personality.word_count);
-    console.log("-------------------------");
     return (
       <div>
         <NavigationBar currentUser={this.props.currentUser.display_name} />

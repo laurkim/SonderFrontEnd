@@ -47,9 +47,6 @@ class PersonalityChart extends Component {
   }
 
   render() {
-    console.log("inside personality chart");
-    console.log("props are", this.props);
-    console.log("----------------");
     return (
       <div>
         <Header as='h3'>
