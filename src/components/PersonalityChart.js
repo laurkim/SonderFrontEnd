@@ -17,7 +17,7 @@ class PersonalityChart extends Component {
   }
 
   setChartData = () => {
-    const traits = this.props.traits;
+    const traits = this.props.traits.personality;
     const data = {
       labels: ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism'],
       datasets: [
@@ -47,6 +47,9 @@ class PersonalityChart extends Component {
   }
 
   render() {
+    console.log("inside personality chart");
+    console.log("props are", this.props);
+    console.log("----------------");
     return (
       <div>
         <Header as='h3'>

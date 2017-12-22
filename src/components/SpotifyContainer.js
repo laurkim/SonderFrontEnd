@@ -40,9 +40,11 @@ class SpotifyContainer extends Component {
   }
 
   render() {
-
-    const padding = !this.props.personality.length ? 5 : 2
-
+    const padding = !this.props.personality.word_count ? 5 : 2
+    console.log("inside spotify container");
+    console.log("props are",this.props);
+    console.log("conditional is", !!this.props.personality.word_count);
+    console.log("-------------------------");
     return (
       <div>
         <NavigationBar currentUser={this.props.currentUser.display_name} />
@@ -69,7 +71,7 @@ class SpotifyContainer extends Component {
             <Grid.Column width={6}>
               {this.props.trackFeatures.length !== 0 ? this.renderTrackList() : null}
             </Grid.Column>
-            {!!this.props.personality.length ? this.renderPersonalityChart() : null}
+            {!!this.props.personality.word_count ? this.renderPersonalityChart() : null}
             <Grid.Column width={padding} />
           </Grid.Row>
         </Grid>

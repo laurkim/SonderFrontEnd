@@ -76,7 +76,7 @@ export function fetchPersonality(input) {
     return fetch(`${URL}/personality_insights?q=${input}`, { headers: WatsonHeaders() })
     .then(res => res.json())
     .then(data => {
-      dispatch({ type: 'FETCH_PERSONALITY', payload: data.personality_insights.personality })
+      dispatch({ type: 'FETCH_PERSONALITY', payload: data.personality_insights })
     });
   };
 };
