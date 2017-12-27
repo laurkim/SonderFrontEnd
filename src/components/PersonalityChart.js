@@ -42,7 +42,7 @@ class PersonalityChart extends Component {
   render() {
     return (
       <div>
-        <Header as='h3'>
+        <Header as='h3' textAlign='center'>
           <Header.Content>
             Your Personality Traits
           </Header.Content>

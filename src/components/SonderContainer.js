@@ -29,7 +29,7 @@ class SonderContainer extends Component {
   }
 
   renderPersonalityChart = () => {
-    window.scrollTo(0, 275);
+    window.scrollTo(0, 405);
     return (
       <Grid.Column width={7}>
         <PersonalityChart traits={this.props.personality} />
