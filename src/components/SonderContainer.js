@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import * as actions from "../actions/index";
 import { Grid, Container, Header } from 'semantic-ui-react';
-import { slide as Menu } from 'react-burger-menu';
+import HamburgerMenu from './HamburgerMenu';
 import PersonalityForm from './PersonalityForm';
 import PersonalityChart from './PersonalityChart';
 import TrackList from './TrackList';
@@ -44,6 +44,7 @@ class SonderContainer extends Component {
       <div>
         <Grid>
           <Grid.Row>
+            <HamburgerMenu />
             <Grid.Column width={3} />
             <Grid.Column width={10}>
               <Container text style={{ marginTop: '7em' }}>
