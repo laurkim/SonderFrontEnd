@@ -18,7 +18,9 @@ class SonderContainer extends Component {
     if (nextProps.topTracks.length > 0 && this.props.trackFeatures.length === 0) {
       const trackIDsArray = nextProps.topTracks.map(track => track.id);
       const trackIDs = trackIDsArray.join(",");
+      const seedTracks = trackIDsArray.slice(0, 5).join(",");
       nextProps.fetchFeatures(trackIDs);
+      nextProps.fetchPlaylist(seedTracks);
     }
   }
 
@@ -38,7 +40,6 @@ class SonderContainer extends Component {
   }
 
   render() {
-    console.log(this.props.personality);
     const padding = !this.props.personality.word_count ? 5 : 2;
     return (
       <div>
@@ -72,12 +73,16 @@ class SonderContainer extends Component {
 };
 
 function mapStateToProps(state) {
+  console.log("inside sonder container");
+  console.log("state is", state);
+  console.log("----------------------------");
   return {
     currentUser: state.currentUser,
     topTracks: state.topTracks,
     trackFeatures: state.trackFeatures,
     topArtists: state.topArtists,
-    personality: state.personalityTraits
+    personality: state.personalityTraits,
+    playlist: state.playlist
   };
 };
 
