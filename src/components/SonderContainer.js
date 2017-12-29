@@ -38,6 +38,7 @@ class SonderContainer extends Component {
   }
 
   render() {
+    console.log(this.props.personality);
     const padding = !this.props.personality.word_count ? 5 : 2;
     return (
       <div>
