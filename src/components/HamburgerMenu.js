@@ -15,14 +15,6 @@ class HamburgerMenu extends Component {
     this.setState({menuOpen: state.isOpen})
   }
 
-  closeMenu () {
-    this.setState({menuOpen: false})
-  }
-
-  toggleMenu () {
-    this.setState({menuOpen: !this.state.menuOpen})
-  }
-
   render () {
     var styles = {
       bmBurgerButton: {
@@ -65,8 +57,6 @@ class HamburgerMenu extends Component {
           onStateChange={state => this.handleStateChange(state)}
           styles={styles}
         >
-          {/* <a onClick={() => this.closeMenu()}>Home</a>
-          <a onClick={() => this.closeMenu()}>About</a> */}
           <SpotifyPlaylist playlist={this.props.playlist} user={this.props.user}/>
         </Menu>
       </div>

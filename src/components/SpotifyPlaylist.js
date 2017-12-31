@@ -13,10 +13,6 @@ class SpotifyPlaylist extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("inside component w r props");
-    console.log("next props are", nextProps);
-    console.log("this props are", this.props);
-    console.log("----------------------------");
     if (nextProps.playlist.length !== 0 && this.props.playlist.length !== 0) {
       fetch(`${URL}/create_playlist`, {
         method: 'POST',

@@ -3,6 +3,8 @@ import { connect }  from 'react-redux';
 import * as actions from "../actions/index";
 import { Grid, Container, Header } from 'semantic-ui-react';
 import HamburgerMenu from './HamburgerMenu';
+import NavigationBar from './NavigationBar';
+import Footer from './Footer';
 import PersonalityForm from './PersonalityForm';
 import PersonalityChart from './PersonalityChart';
 import TrackList from './TrackList';
@@ -43,6 +45,7 @@ class SonderContainer extends Component {
     const padding = !this.props.personality.word_count ? 5 : 2;
     return (
       <div>
+        <NavigationBar />
         <Grid>
           <Grid.Row>
             <HamburgerMenu playlist={this.props.playlist} user={this.props.currentUser}/>
@@ -67,6 +70,7 @@ class SonderContainer extends Component {
             <Grid.Column width={padding} />
           </Grid.Row>
         </Grid>
+        <Footer />
         </div>
     )
   }
