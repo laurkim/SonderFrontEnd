@@ -82,15 +82,11 @@ export function fetchPersonality(input) {
 };
 
 export function fetchPlaylist(data) {
-  console.log("inside fetch playlist");
-  console.log("seed data is", data);
-  console.log("------------------");
   return (dispatch) => {
     return fetch(`${URL}/recommended_playlists?q=${data}`, { headers: Headers() })
     .then(res => res.json())
     .then(data => {
-      debugger
-      dispatch({ type: 'FETCH_PLAYLIST', payload: data.playlist })
+      dispatch({ type: 'FETCH_PLAYLIST', payload: data.playlist.tracks })
     });
   };
 };

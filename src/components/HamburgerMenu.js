@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { stack as Menu } from 'react-burger-menu';
 import { Button } from 'semantic-ui-react';
+import SpotifyPlaylist from './SpotifyPlaylist';
 
 class HamburgerMenu extends Component {
   constructor (props) {
@@ -64,8 +65,9 @@ class HamburgerMenu extends Component {
           onStateChange={state => this.handleStateChange(state)}
           styles={styles}
         >
-          <a onClick={() => this.closeMenu()}>Home</a>
-          <a onClick={() => this.closeMenu()}>About</a>
+          {/* <a onClick={() => this.closeMenu()}>Home</a>
+          <a onClick={() => this.closeMenu()}>About</a> */}
+          <SpotifyPlaylist playlist={this.props.playlist} user={this.props.user}/>
         </Menu>
       </div>
     )

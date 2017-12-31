@@ -45,7 +45,7 @@ class SonderContainer extends Component {
       <div>
         <Grid>
           <Grid.Row>
-            <HamburgerMenu />
+            <HamburgerMenu playlist={this.props.playlist} user={this.props.currentUser}/>
             <Grid.Column width={3} />
             <Grid.Column width={10}>
               <Container text style={{ marginTop: '7em' }}>
@@ -73,9 +73,6 @@ class SonderContainer extends Component {
 };
 
 function mapStateToProps(state) {
-  console.log("inside sonder container");
-  console.log("state is", state);
-  console.log("----------------------------");
   return {
     currentUser: state.currentUser,
     topTracks: state.topTracks,

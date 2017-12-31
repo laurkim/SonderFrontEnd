@@ -102,10 +102,7 @@ class PersonalityChart extends Component {
 
     this.setState({
       chartData: childData
-    })
-    // console.log("the clicked trait is", trait);
-    // console.log("subTraitClicked in state is", this.state.subTraitClicked);
-    // console.log("---------------");
+    });
   }
 
   render() {
