@@ -7,6 +7,9 @@ import LogOut from './LogOut';
 
 class NavigationBar extends Component {
   render() {
+    console.log("inside nav bar");
+    console.log("props are", this.props);
+    console.log("------------------------");
     return (
       <div>
         <Menu position='top' inverted>
@@ -33,7 +36,7 @@ class NavigationBar extends Component {
           {/* right side of fixed nav bar */}
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Button color='blue' as='a'>{this.props.currentUser.display_name}</Button>
+              {this.props.currentUser.id ? <Button inverted as='a' href={this.props.currentUser.spotify_url} target="_blank">{this.props.currentUser.display_name}</Button> : null}
             </Menu.Item>
             <Menu.Item>
               <LogOut />

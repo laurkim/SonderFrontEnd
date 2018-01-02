@@ -13,7 +13,7 @@ class LogOut extends Component {
   render() {
     return (
       <div>
-        <Button basic color='blue' onClick={this.logOut}>Log Out</Button>
+        <Button inverted color='grey' onClick={this.logOut}>Log Out</Button>
       </div>
     )
   };

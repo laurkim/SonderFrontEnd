@@ -16,6 +16,9 @@ class HamburgerMenu extends Component {
   }
 
   render () {
+    console.log("inside hamburger menu");
+    console.log("props are", this.props);
+    console.log("------------------------");
     var styles = {
       bmBurgerButton: {
         position: 'fixed',
@@ -57,7 +60,7 @@ class HamburgerMenu extends Component {
           onStateChange={state => this.handleStateChange(state)}
           styles={styles}
         >
-          <SpotifyPlaylist playlist={this.props.playlist} user={this.props.user}/>
+          {this.props.playlist.length !== 0 ? <SpotifyPlaylist playlist={this.props.playlist} user={this.props.user}/> : null}
         </Menu>
       </div>
     )

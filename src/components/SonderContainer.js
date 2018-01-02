@@ -48,7 +48,7 @@ class SonderContainer extends Component {
         <NavigationBar />
         <Grid>
           <Grid.Row>
-            <HamburgerMenu playlist={this.props.playlist} user={this.props.currentUser}/>
+            <HamburgerMenu playlist={this.props.playlist} user={this.props.currentUser} />
             <Grid.Column width={3} />
             <Grid.Column width={10}>
               <Container text style={{ marginTop: '7em' }}>
