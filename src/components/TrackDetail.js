@@ -32,12 +32,12 @@ const TrackDetail = props => {
             <li>Vocal Content: {convertToPercentage(instrumentalness)}%</li>
             <li>Valence: {valence}</li>
           </Item.Description>
-          <Item.Extra>
+          {/* <Item.Extra>
             <Label>
               <Image avatar src='/albumLogo.png' width='5' height='5'/>
               <span>play button</span>
             </Label>
-          </Item.Extra>
+          </Item.Extra> */}
         </Item.Content>
       </Item>
   )

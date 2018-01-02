@@ -82,20 +82,20 @@ class PersonalityChart extends Component {
           traitSix
         ],
         backgroundColor: [
-          '#EC7063',
-          '#5DADE2',
-          '#F0B27A',
-          '#45B39D',
-          '#AF7AC5',
-          '#F5F275'
+          '#2D2D2F',
+          '#0E0E16',
+          '#182449',
+          '#3F568B',
+          '#8088B2',
+          '#C7B0C2'
         ],
         hoverBackgroundColor: [
-          '#EC7063',
-          '#5DADE2',
-          '#F0B27A',
-          '#45B39D',
-          '#AF7AC5',
-          '#F5F275'
+          '#2D2D2F',
+          '#0E0E16',
+          '#182449',
+          '#3F568B',
+          '#8088B2',
+          '#C7B0C2'
         ]
       }]
     };
@@ -128,6 +128,11 @@ class PersonalityChart extends Component {
             <Button onClick={e => {this.replaceChart(e)}}>Neuroticism</Button>
           </Button.Group>
         </Grid.Column>
+        <Header as='h5' textAlign='center'>
+          <Header.Content>
+            Results are presented as percentages out of 100.
+          </Header.Content>
+        </Header>
       </div>
     )
   }

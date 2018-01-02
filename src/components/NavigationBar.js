@@ -7,9 +7,6 @@ import LogOut from './LogOut';
 
 class NavigationBar extends Component {
   render() {
-    console.log("inside nav bar");
-    console.log("props are", this.props);
-    console.log("------------------------");
     return (
       <div>
         <Menu position='top' inverted>
