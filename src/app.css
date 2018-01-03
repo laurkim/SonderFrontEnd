@@ -4,6 +4,11 @@
   left: 650px;
 }
 
+#site-header {
+  position: relative;
+  top: 100px;
+}
+
 #scrollable {
   overflow: auto;
   max-height: 100vh;
