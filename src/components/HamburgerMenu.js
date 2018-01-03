@@ -15,6 +15,12 @@ class HamburgerMenu extends Component {
     this.setState({menuOpen: state.isOpen})
   }
 
+  renderSpotifyPlaylist = () => {
+    return (
+      <SpotifyPlaylist playlist={this.props.playlist} user={this.props.user}/>
+    );
+  }
+
   render () {
     var styles = {
       bmBurgerButton: {
@@ -57,7 +63,7 @@ class HamburgerMenu extends Component {
           onStateChange={state => this.handleStateChange(state)}
           styles={styles}
         >
-          {this.props.playlist.length !== 0 ? <SpotifyPlaylist playlist={this.props.playlist} user={this.props.user}/> : null}
+          {/* {this.props.playlist.length !== 0 ? this.renderSpotifyPlaylist() : null} */}
         </Menu>
       </div>
     )

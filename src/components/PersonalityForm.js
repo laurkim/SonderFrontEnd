@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import * as actions from "../actions/index";
-import { Form } from 'semantic-ui-react';
+import { Card, Form, Icon } from 'semantic-ui-react';
 
 class PersonalityForm extends Component {
   constructor() {
@@ -49,13 +49,26 @@ class PersonalityForm extends Component {
   render() {
     return (
       <div align='center'>
-        <Form>
-          <Form.TextArea
-            value = {this.state.personalityInput}
-            placeholder='The more input you provide, the more accurate your personality results will be...'
-            onChange={e => this.handleInputChange(e)}/>
-          <Form.Button onClick={e => this.handleInputSubmit(e)}>Get Your Personality</Form.Button>
-        </Form>
+        <Card fluid>
+          <Card.Header
+            as="h1"
+            content='What type of music do you like?'
+            style={{
+              marginTop: '15px'
+            }}
+          />
+          <Card.Content>
+            <Form>
+              <Form.TextArea
+                value = {this.state.personalityInput}
+                placeholder='The more input you provide, the more accurate your personality results will be...'
+                onChange={e => this.handleInputChange(e)}/>
+              </Form>
+          </Card.Content>
+          <Card.Content extra>
+            <Form.Button basic color="green" onClick={e => this.handleInputSubmit(e)}>Get Your Personality</Form.Button>
+          </Card.Content>
+        </Card>
         <br/>
       </div>
     );

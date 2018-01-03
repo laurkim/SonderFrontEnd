@@ -52,7 +52,6 @@ class SonderContainer extends Component {
             <Grid.Column width={3} />
             <Grid.Column width={10}>
               <Container text style={{ marginTop: '7em' }}>
-                <Header as='h1' textAlign='center'>What type of music do you like?</Header>
                 <PersonalityForm topArtists={this.props.topArtists} topTracks={this.props.topTracks} />
               </Container>
             </Grid.Column>
