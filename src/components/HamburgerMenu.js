@@ -16,9 +16,6 @@ class HamburgerMenu extends Component {
   }
 
   render () {
-    console.log("inside hamburger menu");
-    console.log("props are", this.props);
-    console.log("------------------------");
     var styles = {
       bmBurgerButton: {
         position: 'fixed',

@@ -9,15 +9,9 @@ const Footer = () => {
         vertical
         style={{ margin: '5em 0em 0em'}}
         >
-
-
-          <Image
-            centered
-            size='mini'
-            src='/invertedLogo.png'
-          />
-        </Segment>
-      </div>
+        <Image centered size='tiny' src='/invertedLogo.png' />
+      </Segment>
+    </div>
   );
 };
 

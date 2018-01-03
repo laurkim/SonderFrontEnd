@@ -2,10 +2,23 @@ import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 import * as actions from "../actions/index";
 import { Link } from 'react-router-dom';
-import { Container, Image, Menu, Button } from 'semantic-ui-react';
+import { Container, Image, Menu, Button, Label } from 'semantic-ui-react';
 import LogOut from './LogOut';
 
 class NavigationBar extends Component {
+  renderUserButton = () => {
+    return (
+      <Button inverted as='a' href={this.props.currentUser.spotify_url} target="_blank">{this.props.currentUser.display_name}</Button>
+    );
+  }
+
+  renderUserImage = () => {
+    const profilePicURL = this.props.currentUser.profile_img_url;
+    return (
+      <Image src={profilePicURL} avatar />
+    )
+  }
+
   render() {
     return (
       <div>
@@ -15,7 +28,9 @@ class NavigationBar extends Component {
               <Image
                 size='mini'
                 src='/invertedLogo.png'
-                style={{ marginRight: '1.5em' }}
+                style={{
+                  marginRight: '1.5em'
+                }}
               />
               Sonder
             </Menu.Item>
@@ -33,7 +48,10 @@ class NavigationBar extends Component {
           {/* right side of fixed nav bar */}
           <Menu.Menu position='right'>
             <Menu.Item>
-              {this.props.currentUser.id ? <Button inverted as='a' href={this.props.currentUser.spotify_url} target="_blank">{this.props.currentUser.display_name}</Button> : null}
+              {this.props.currentUser.id ? this.renderUserImage() : null}
+            </Menu.Item>
+            <Menu.Item>
+              {this.props.currentUser.id ? this.renderUserButton() : null}
             </Menu.Item>
             <Menu.Item>
               <LogOut />

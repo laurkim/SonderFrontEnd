@@ -16,13 +16,13 @@ const Login = () => {
         >
           <Container text>
             <Header
-              as="h1"
+              // as="h1"
               content="SONDER"
               inverted
               style={{
                 fontFamily: "Josefin Sans",
                 fontSize: "75px",
-                fontWeight: "normal",
+                fontWeight: "light",
                 marginBottom: 0,
                 marginTop: "8px"
               }}
@@ -44,7 +44,7 @@ const Login = () => {
               content="LOG IN"
               style={{
                 fontFamily: "Josefin Sans",
-                fontWeight: "normal",
+                fontWeight: "light",
                 marginTop: "4px"
               }}
             />
