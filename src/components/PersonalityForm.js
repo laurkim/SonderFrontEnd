@@ -47,9 +47,10 @@ class PersonalityForm extends Component {
   };
 
   render() {
+    const formPrompt = "The more input you provide, the more accurate your personality results will be...";
     return (
       <div align='center'>
-        <Card fluid>
+        <Card color='grey' fluid>
           <Card.Header
             as="h1"
             content='What type of music do you like?'
@@ -61,12 +62,12 @@ class PersonalityForm extends Component {
             <Form>
               <Form.TextArea
                 value = {this.state.personalityInput}
-                placeholder='The more input you provide, the more accurate your personality results will be...'
+                placeholder={formPrompt}
                 onChange={e => this.handleInputChange(e)}/>
               </Form>
           </Card.Content>
           <Card.Content extra>
-            <Form.Button basic color="green" onClick={e => this.handleInputSubmit(e)}>Get Your Personality</Form.Button>
+            <Form.Button basic color="teal" onClick={e => this.handleInputSubmit(e)}>Get Your Personality</Form.Button>
           </Card.Content>
         </Card>
         <br/>

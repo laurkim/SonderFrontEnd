@@ -1,6 +1,8 @@
 import React from 'react';
 import { Image, Button, Container, Header, Icon, Segment } from 'semantic-ui-react';
 
+const backgroundURL = "https://images.unsplash.com/photo-1495369470453-f6af4ade471b?auto=format&fit=crop&w=1950&q=80";
+
 const Login = () => {
   return (
     <div>
@@ -8,25 +10,24 @@ const Login = () => {
         textAlign="center"
         vertical
         style={{
-          minHeight: 900,
-          backgroundImage: "url(https://media.giphy.com/media/wR3yklvpBIgzS/giphy.gif)",
+          maxHeight: "900px",
+          backgroundImage: `url(${backgroundURL})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
         >
           <Container text>
             <Header
-              // as="h1"
               content="SONDER"
               inverted
               style={{
                 fontFamily: "Josefin Sans",
                 fontSize: "75px",
                 fontWeight: "light",
-                marginBottom: 0,
-                marginTop: "8px"
-              }}
-            />
+                marginBottom: "0px",
+                marginTop: "75px"
+            }}
+          />
         </Container>
         <Container >
           <Button
@@ -38,27 +39,24 @@ const Login = () => {
             href='http://localhost:3000/api/v1/login'
             style={{
               marginTop: "575px"
-            }}>
-            <Button.Content
-              visible
-              content="LOG IN"
-              style={{
-                fontFamily: "Josefin Sans",
-                fontWeight: "light",
-                marginTop: "4px"
-              }}
-            />
-            <Button.Content hidden>
-              <Icon name='send' />
-            </Button.Content>
+          }}>
+          <Button.Content
+            visible
+            content="LOG IN"
+            style={{
+              fontFamily: "Josefin Sans",
+              fontWeight: "light",
+              marginTop: "4px"
+            }}
+          />
+          <Button.Content hidden>
+            <Icon name='send' />
+          </Button.Content>
           </Button>
         </Container>
       </Segment>
-      {/* <div id="login-button"> */}
-    {/* </div> */}
     </div>
   );
-
 };
 
 export default Login;
