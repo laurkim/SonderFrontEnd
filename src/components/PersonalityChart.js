@@ -31,7 +31,7 @@ class PersonalityChart extends Component {
       labels: ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism'],
       datasets: [
         {
-          label: 'Your Big5 Personality Traits',
+          label: 'Your Big Five Personality Traits',
           backgroundColor: 'rgba(255,99,132,0.2)',
           borderColor: 'rgba(255,99,132,1)',
           pointBackgroundColor: 'rgba(255,99,132,1)',
@@ -108,18 +108,18 @@ class PersonalityChart extends Component {
   render() {
     return (
       <div>
-        <Header as='h3' textAlign='center'>
+        <Header as='h2' textAlign='center'>
           <Header.Content>
             Your Personality Traits
           </Header.Content>
         </Header>
         {this.state.subTraitClicked === false ? <Radar data={this.state.chartData} /> : <Doughnut data={this.state.chartData}/> }
-        <Header as='h5' textAlign='center'>
+        <Header as='h3' textAlign='center'>
           <Header.Content>
             Click on one of the below to expand on your personality:
           </Header.Content>
         </Header>
-        <Grid.Column>
+        <Grid.Column align="center">
           <Button.Group basic>
             <Button onClick={e => {this.replaceChart(e)}}>Openness</Button>
             <Button onClick={e => {this.replaceChart(e)}}>Conscientiousness</Button>
@@ -128,7 +128,7 @@ class PersonalityChart extends Component {
             <Button onClick={e => {this.replaceChart(e)}}>Neuroticism</Button>
           </Button.Group>
         </Grid.Column>
-        <Header as='h5' textAlign='center'>
+        <Header as='h3' textAlign='center'>
           <Header.Content>
             Results are presented as percentages out of 100.
           </Header.Content>

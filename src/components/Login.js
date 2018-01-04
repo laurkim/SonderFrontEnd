@@ -10,50 +10,49 @@ const Login = () => {
         textAlign="center"
         vertical
         style={{
-          maxHeight: "900px",
+          minHeight: "1000px",
           backgroundImage: `url(${backgroundURL})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
         >
-          <Container text>
-            <Header
-              content="SONDER"
-              inverted
-              style={{
-                fontFamily: "Josefin Sans",
-                fontSize: "75px",
-                fontWeight: "light",
-                marginBottom: "0px",
-                marginTop: "75px"
+      <Container text>
+        <Header
+          content="SONDER"
+          inverted
+          style={{
+            fontFamily: "Josefin Sans",
+            fontSize: "95px",
+            fontWeight: "light",
+            marginBottom: "0px",
+            marginTop: "75px"
             }}
           />
-        </Container>
-        <Container >
           <Button
             animated
-            basic
+            // basic
+            color="grey"
             inverted
-            color="white"
-            size="large"
+            size="huge"
             href='http://localhost:3000/api/v1/login'
             style={{
-              marginTop: "575px"
-          }}>
-          <Button.Content
-            visible
-            content="LOG IN"
-            style={{
-              fontFamily: "Josefin Sans",
-              fontWeight: "light",
-              marginTop: "4px"
-            }}
-          />
-          <Button.Content hidden>
-            <Icon name='send' />
-          </Button.Content>
+              marginTop: "15px"
+            }}>
+            <Button.Content
+              visible
+              content="LOG IN"
+              style={{
+                fontFamily: "Josefin Sans",
+                fontWeight: "light",
+                marginTop: "4px"
+              }}
+            />
+            <Button.Content hidden>
+              <Icon name='send' />
+            </Button.Content>
           </Button>
         </Container>
+
       </Segment>
     </div>
   );

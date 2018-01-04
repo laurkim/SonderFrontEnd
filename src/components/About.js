@@ -35,7 +35,6 @@ const About = () => {
         <Grid.Row>
           <Grid.Column width={2} />
           <Grid.Column width={12}>
-            <Container textAlign='center'>
               <Header
                 style={{
                   fontFamily: "Josefin Sans",
@@ -59,12 +58,10 @@ const About = () => {
                     {sonderDefinition}
                   </Header>
                   <Divider section />
-                </Container>
-                <Container textAlign='center'>
                   <Header
                     style={{
                       fontFamily: "Josefin Sans",
-                      fontSize: "20px",
+                      fontSize: "25px",
                       fontWeight: "light",
                       marginTop: "15px",
                       marginBottom: "20px"
@@ -75,7 +72,6 @@ const About = () => {
                       <br />
                       {bigFiveDescription}
                     </Header>
-                  </Container>
           </Grid.Column>
           <Grid.Column width={2} />
         </Grid.Row>
@@ -90,9 +86,10 @@ const About = () => {
             <Header
               style={{
                 fontFamily: "Josefin Sans",
-                fontSize: "20px",
+                fontSize: "25px",
                 fontWeight: "light",
                 textAlign: "left",
+                marginTop: "15px"
               }}
               >
                 {openness}
@@ -142,9 +139,10 @@ const About = () => {
             <Header
               style={{
                 fontFamily: "Josefin Sans",
-                fontSize: "20px",
+                fontSize: "25px",
                 fontWeight: "light",
-                textAlign: "left"
+                textAlign: "left",
+                marginTop: "15px"
               }}
               >
                 {agreeableness}
