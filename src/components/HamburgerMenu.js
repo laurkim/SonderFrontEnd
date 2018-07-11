@@ -63,7 +63,7 @@ class HamburgerMenu extends Component {
           onStateChange={state => this.handleStateChange(state)}
           styles={styles}
         >
-          {/* {this.props.playlist.length !== 0 ? this.renderSpotifyPlaylist() : null} */}
+          {this.props.playlist.length !== 0 ? this.renderSpotifyPlaylist() : null}
         </Menu>
       </div>
     )

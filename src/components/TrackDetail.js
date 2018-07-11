@@ -30,7 +30,7 @@ const TrackDetail = props => {
             <li>Energy: {convertToPercentage(energy)}%</li>
             <li>Modality: {mode === 1 ? `Major` : `Minor`}</li>
             <li>Vocal Content: {convertToPercentage(instrumentalness)}%</li>
-            <li>Valence: {valence}</li>
+            <li>Valence: {convertToPercentage(valence)}%</li>
           </Item.Description>
         </Item.Content>
       </Item>

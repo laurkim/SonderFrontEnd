@@ -12,7 +12,6 @@ export function loginUser(code, history) {
     .then(res => res.json())
     .then(user => {
       localStorage.setItem("jwt", user.code)
-      if (user.currentUser.username === "keeemster") user.currentUser.display_name = "Laura";
       dispatch({ type: 'LOGIN_USER', payload: user.currentUser })
       history.push("/home")
     });
