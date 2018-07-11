@@ -10,7 +10,7 @@ const Login = () => {
         textAlign="center"
         vertical
         style={{
-          minHeight: "1000px",
+          minHeight: "1090px",
           backgroundImage: `url(${backgroundURL})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
@@ -25,7 +25,7 @@ const Login = () => {
             fontSize: "95px",
             fontWeight: "light",
             marginBottom: "0px",
-            marginTop: "75px"
+            marginTop: "50px"
             }}
           />
           <Button
