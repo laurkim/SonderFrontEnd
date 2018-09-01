@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Headers } from '../Adapters/Headers';
-const URL = 'http://localhost:3000/api/v1';
+const URL = 'https://sonder-app-api.herokuapp.com/api/v1';
 
 class SpotifyPlaylist extends Component {
   constructor() {

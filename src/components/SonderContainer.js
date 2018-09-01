@@ -12,7 +12,7 @@ import TrackList from './TrackList';
 class SonderContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser.display_name && nextProps.topTracks.length === 0) {
+    if (nextProps.currentUser.username && nextProps.topTracks.length === 0) {
       nextProps.fetchTracks();
       nextProps.fetchArtists();
     }

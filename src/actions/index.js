@@ -1,6 +1,6 @@
 import { Headers } from '../Adapters/Headers';
 import { WatsonHeaders } from '../Adapters/Headers';
-const URL = 'http://localhost:3000/api/v1';
+const URL = 'https://sonder-app-api.herokuapp.com/api/v1';
 
 export function loginUser(code, history) {
   return (dispatch) => {
@@ -27,7 +27,6 @@ export function fetchUser(jwt, history) {
     })
     .then(res => res.json())
     .then(user => {
-      if (user.currentUser.username === "keeemster") user.currentUser.display_name = "Laura";
       dispatch({ type: 'FETCH_USER', payload: user.currentUser })
     });
   };
@@ -45,6 +44,7 @@ export function fetchTracks() {
     return fetch(`${URL}/top_tracks`, { headers: Headers() })
     .then(res => res.json())
     .then(data => {
+      debugger
        dispatch({ type: 'FETCH_TRACKS', payload: data.top_tracks.items })
     });
   };
